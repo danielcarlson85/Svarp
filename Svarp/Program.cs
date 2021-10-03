@@ -61,8 +61,6 @@ namespace Svarp
         }
 
 
-
-
         private static string RunFunction(Function function)
         {
             switch (function.FunctionName)
