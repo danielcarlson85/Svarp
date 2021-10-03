@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Svarp
@@ -7,17 +9,21 @@ namespace Svarp
     class StringVariable
     {
         public string VariableName { get; set; }
-        public string VariableValue { get; set; }
+        public string VariableInputValue { get; set; }
     }
 
+    class Function
+    {
+        public List<StringVariable> StringVariable { get; set; } = new List<StringVariable>();
+        public string VariableNameCache { get; set; }
+        public string VariableInputValueCache { get; set; }
 
+        public string FunctionName { get; set; }
+    }
 
     class Program
     {
-        private static string functionCachedName;
-        private static string parameterCachedName;
-
-        private static StringVariable Variable = new StringVariable();
+        private static Function function = new Function();
 
 
         static async Task Main(string[] args)
@@ -37,12 +43,87 @@ namespace Svarp
         {
             foreach (var row in file)
             {
-                functionCachedName = GetFunctionName(row, "(", ")");
-                parameterCachedName = GetFunctionParameters(row, "\"", "\"");
-                Variable.VariableName= GetInputVariableName(row, "{", "}");
+                if (string.IsNullOrEmpty(row))
+                {
+                    continue;
+                }
 
-                RunFunctions(functionCachedName, parameterCachedName, Variable);
+
+                var functionName = GetFunctionName(row, "(", ")");
+                function.FunctionName = string.IsNullOrEmpty(functionName) ? "Variable" : functionName;
+
+                function.VariableNameCache = GetInputVariableName(row, "{", "}");
+                function.VariableInputValueCache = GetFunctionInputText(row, "\"", "\"");
+
+                RunFunction(function);
             }
+            return null;
+        }
+
+
+
+
+        private static string RunFunction(Function function)
+        {
+            switch (function.FunctionName)
+            {
+                case "Skriv":
+
+                    var variable = function.StringVariable.Find(v => v.VariableName == function.VariableNameCache);
+
+                    if (variable != null)
+                    {
+                        Console.WriteLine(function.VariableInputValueCache);
+                        Console.WriteLine(variable.VariableInputValue);
+                    }
+
+                    else
+                    {
+                        Console.WriteLine(function.VariableInputValueCache);
+                    }
+                    
+                    break;
+
+                case "Variable":
+
+                    var stringVariable = function.StringVariable.Find(v => v.VariableName == function.VariableNameCache);
+
+                    if (stringVariable == null)
+                    {
+                        stringVariable = new StringVariable();
+                        stringVariable.VariableInputValue = function.VariableInputValueCache;
+                        stringVariable.VariableName = function.VariableNameCache;
+                        function.StringVariable.Add(stringVariable);
+                    }
+                    else
+                    {
+                        stringVariable.VariableInputValue = function.VariableInputValueCache;
+                    }
+
+                    break;
+
+                case "Läs":
+
+                    var inData = Console.ReadLine();
+                    stringVariable = function.StringVariable.Find(v => v.VariableName == function.VariableNameCache);
+
+                    if (stringVariable == null)
+                    {
+                        stringVariable = new StringVariable();
+                        stringVariable.VariableInputValue = inData;
+                        stringVariable.VariableName = function.VariableNameCache;
+                        function.StringVariable.Add(stringVariable);
+                    }
+                    else
+                    {
+                        stringVariable.VariableInputValue = function.VariableInputValueCache;
+                    }
+
+                    break;
+                default:
+                    break;
+            }
+
             return null;
         }
 
@@ -73,27 +154,6 @@ namespace Svarp
 
             return "";
         }
-
-        private static string RunFunctions(string function, string parameters, StringVariable variable)
-        {
-            switch (function)
-            {
-                case "Skriv":
-                    Console.WriteLine(parameters + variable.VariableValue);
-                    break;
-
-                case "Läs":
-                    Console.WriteLine(parameters);
-                    var inData = Console.ReadLine();
-                    variable.VariableValue = inData;
-                    break;
-                default:
-                    break;
-            }
-
-            return null;
-        }
-
         public static string GetFunction(string text, string stopAt = "-")
         {
             if (!String.IsNullOrWhiteSpace(text))
@@ -109,10 +169,7 @@ namespace Svarp
             return String.Empty;
         }
 
-
-
-
-        public static string GetFunctionParameters(string strSource, string strStart, string strEnd)
+        public static string GetFunctionInputText(string strSource, string strStart, string strEnd)
         {
             if (strSource.Contains(strStart) && strSource.Contains(strEnd))
             {

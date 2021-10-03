@@ -1,28 +1,7 @@
-﻿{variable1}(Läs)"Vad heter du?"
-(Skriv)"Vad roligt att du är här:"{test}
+﻿(Skriv)"första raden"
+{var1}"första variablen"
+(Skriv){var1}
+
+{variable1}(Läs)
+(Skriv)"Vad roligt att du är här:" {variable1}
 {variable2}"När är du född?"(Läs)
-
-
-
-
-
-
-
-
-
-
-
-
-
-SWarp is a swedish sharp programming language that is build for fun
-
-To use:
-
-declare variables: use {}
-eg
-
-{variableName1}
-
-Usable methods:
-	(Skriv)
-	(Läs)
