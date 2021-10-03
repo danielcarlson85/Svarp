@@ -53,7 +53,7 @@ namespace Svarp
                 function.FunctionName = string.IsNullOrEmpty(functionName) ? "Variable" : functionName;
 
                 function.VariableNameCache = GetInputVariableName(row, "{", "}");
-                function.VariableInputValueCache = GetFunctionInputText(row, "\"", "\"");
+                function.VariableInputValueCache = GetFunctionInputText(row, "=\"", "\"");
 
                 RunFunction(function);
             }
@@ -73,7 +73,11 @@ namespace Svarp
 
                     if (variable != null)
                     {
-                        Console.WriteLine(function.VariableInputValueCache);
+                        if (string.IsNullOrEmpty(variable.VariableInputValue))
+                        {
+                            Console.WriteLine(function.VariableInputValueCache);
+                        }
+
                         Console.WriteLine(variable.VariableInputValue);
                     }
 
