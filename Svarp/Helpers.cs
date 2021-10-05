@@ -8,7 +8,9 @@ namespace Svarp
 {
     static class Helpers
     {
-        public static string GetStringInputVariableName(string strSource, string strStart, string strEnd)
+
+
+        public static string GetInputVariableName(string strSource, string strStart, string strEnd)
         {
             if (strSource.Contains(strStart) && strSource.Contains(strEnd))
             {
@@ -33,9 +35,7 @@ namespace Svarp
 
             return "";
         }
-
-
-        public static string GetFunctionName(string text, string stopAt = "-")
+        public static string GetFunction(string text, string stopAt = "-")
         {
             if (!String.IsNullOrWhiteSpace(text))
             {
@@ -50,10 +50,7 @@ namespace Svarp
             return String.Empty;
         }
 
-
-
-
-        public static string GetFunctionParameters(string strSource, string strStart, string strEnd)
+        public static string GetFunctionInputText(string strSource, string strStart, string strEnd)
         {
             if (strSource.Contains(strStart) && strSource.Contains(strEnd))
             {
