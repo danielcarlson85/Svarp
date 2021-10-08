@@ -1,9 +1,5 @@
 ﻿using Svarp;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SWarp.Methods
 {
@@ -11,8 +7,24 @@ namespace SWarp.Methods
     {
         internal static void RäknaUt(Code code, CodeRow codeRow)
         {
-            var number1 = codeRow.RowText.Split(codeRow.Operator)[0];
-            var number2 = codeRow.RowText.Split(codeRow.Operator)[1];
+            string number1 = string.Empty;
+            string number2 = string.Empty;
+
+            var variable = code.StringVariables.SingleOrDefault(v => v.VariableName == codeRow.RowVariableName);
+
+            if (variable != null)
+            {
+                var op = Helpers.GetFunctionOperator(variable.VariableValue);
+                codeRow.Operator = op;
+                number1 = variable.VariableValue.Split(op)[0];
+                number2 = variable.VariableValue.Split(op)[1];
+            }
+            else
+            {
+                number1 = codeRow.RowText.Split(codeRow.Operator)[0];
+                number2 = codeRow.RowText.Split(codeRow.Operator)[1];
+            }
+
 
             int result = 0;
 
@@ -35,20 +47,22 @@ namespace SWarp.Methods
                     break;
             }
 
-            var stringVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
-
-            if (stringVariable == null)
+            if (codeRow.RowText == string.Empty)
             {
-                stringVariable = new StringVariable();
-                stringVariable.VariableInputValue = result.ToString();
-                stringVariable.VariableName = codeRow.RowVariableName;
-            }
-            else
-            {
-                stringVariable.VariableInputValue = codeRow.RowVariableValue;
-            }
+                var stringVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
 
-            code.StringVariables.Add(stringVariable);
+                if (stringVariable == null)
+                {
+                    stringVariable = new StringVariable();
+                    stringVariable.VariableValue = result.ToString();
+                    stringVariable.VariableName = codeRow.RowVariableName;
+                    code.StringVariables.Add(stringVariable);
+                }
+                else
+                {
+                    stringVariable.VariableValue = result.ToString();
+                }
+            }
         }
     }
 }

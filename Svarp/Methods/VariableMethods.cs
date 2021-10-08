@@ -9,12 +9,12 @@
             if (stringVariable == null)
             {
                 stringVariable = new StringVariable();
-                stringVariable.VariableInputValue = codeRow.RowText;
+                stringVariable.VariableValue = codeRow.RowText;
                 stringVariable.VariableName = codeRow.RowVariableName;
             }
             else
             {
-                stringVariable.VariableInputValue = codeRow.RowVariableValue;
+                stringVariable.VariableValue = codeRow.RowVariableValue;
             }
 
             code.StringVariables.Add(stringVariable);

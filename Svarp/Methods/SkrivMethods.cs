@@ -14,12 +14,12 @@ namespace Svarp.Methods
 
             if (variable is not null)
             {
-                if (string.IsNullOrEmpty(variable.VariableInputValue))
+                if (string.IsNullOrEmpty(variable.VariableValue))
                 {
                     Console.WriteLine(codeRow.RowText);
                 }
 
-                Console.WriteLine(codeRow.RowText + variable.VariableInputValue);
+                Console.WriteLine(codeRow.RowText + variable.VariableValue);
             }
             else
             {

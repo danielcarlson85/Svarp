@@ -13,12 +13,12 @@ namespace Svarp.Methods
             if (stringVariable == null)
             {
                 stringVariable = new StringVariable();
-                stringVariable.VariableInputValue = inData;
+                stringVariable.VariableValue = inData;
                 stringVariable.VariableName = codeRow.RowVariableName;
             }
             else
             {
-                stringVariable.VariableInputValue = codeRow.RowVariableValue;
+                stringVariable.VariableValue = codeRow.RowVariableValue;
             }
 
             code.StringVariables.Add(stringVariable);
