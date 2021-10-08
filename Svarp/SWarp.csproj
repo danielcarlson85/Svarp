@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Include="bin\Debug\net5.0\win-x64\test.sv" />
+    <None Include="bin\Release\net5.0\publish\test.sv" />
   </ItemGroup>
 
 </Project>
