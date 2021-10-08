@@ -76,6 +76,25 @@ namespace Svarp
                             stringVariable.VariableInputValue = codeRow.RowVariableValue;
                         }
                         break;
+
+                    case "Läs":
+
+                        var inData = Console.ReadLine();
+                        stringVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
+
+                        if (stringVariable == null)
+                        {
+                            stringVariable = new StringVariable();
+                            stringVariable.VariableInputValue = inData;
+                            stringVariable.VariableName = codeRow.RowVariableName;
+                            code.StringVariables.Add(stringVariable);
+                        }
+                        else
+                        {
+                            stringVariable.VariableInputValue = codeRow.RowVariableValue;
+                        }
+
+                        break;
                 }
             }
         }

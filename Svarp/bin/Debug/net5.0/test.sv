@@ -4,13 +4,16 @@
 (Skriv)"hej"
 
 {input1}(Läs)
+
+(Skriv){input1}
+
 {input2}(Läs)
 
 (Skriv){input2}
 
 
-(Skriv){var1}
 
+(Skriv){var1}
 
 
 (Skriv)="första raden direkt text"
