@@ -1,21 +1,6 @@
-﻿{var1}="första variabel"
+﻿//Daniel
+(Läs)"Vad heter du? "{var1}
 
 
-(Skriv)"hej"
-
-{input1}(Läs)
-
-(Skriv){input1}
-
-{input2}(Läs)
-
-(Skriv){input2}
-
-
-
-(Skriv){var1}
-
-
-(Skriv)="första raden direkt text"
-{var6}="yoyo från variable"
-(Skriv)={var6}
+//Johan
+(Skriv)="Hej "{var1}

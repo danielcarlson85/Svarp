@@ -8,8 +8,6 @@ namespace Svarp
 {
     static class Helpers
     {
-
-
         public static string GetInputVariableName(string strSource, string strStart, string strEnd)
         {
             if (strSource.Contains(strStart) && strSource.Contains(strEnd))
@@ -35,6 +33,7 @@ namespace Svarp
 
             return "";
         }
+
         public static string GetFunction(string text, string stopAt = "-")
         {
             if (!String.IsNullOrWhiteSpace(text))

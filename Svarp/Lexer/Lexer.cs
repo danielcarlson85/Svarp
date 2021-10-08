@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Svarp
+﻿namespace Svarp
 {
     class Lexer
     {
@@ -16,12 +10,9 @@ namespace Svarp
             codeRow.FunctionName = string.IsNullOrEmpty(functionName) ? "Variable" : functionName;
 
             codeRow.RowVariableName = Helpers.GetInputVariableName(row, "{", "}");
-            codeRow.RowVariableValue = Helpers.GetFunctionInputText(row, "\"", "\"");
-
             codeRow.RowText = Helpers.GetFunctionInputText(row, "\"", "\"");
-
             code.CodeRows.Add(codeRow);
-            
+
             return code;
         }
     }

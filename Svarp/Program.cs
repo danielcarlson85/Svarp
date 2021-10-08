@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Svarp.Methods;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,12 +12,16 @@ namespace Svarp
 
         static async Task Main(string[] args)
         {
-            var svarpFile = "test.sv";
-            var file = await File.ReadAllLinesAsync(svarpFile);
+            var SWarpFile = "test.sv";
+            var file = await File.ReadAllLinesAsync(SWarpFile);
 
             foreach (var row in file)
             {
                 if (string.IsNullOrEmpty(row))
+                {
+                    continue;
+                }
+                if (row.StartsWith("//"))
                 {
                     continue;
                 }
@@ -34,15 +39,15 @@ namespace Svarp
                 switch (codeRow.FunctionName)
                 {
                     case "Skriv":
-                        Methods.Skriv(code, codeRow);
+                        SkrivMethods.Skriv(code, codeRow);
                         break;
 
                     case "Variable":
-                        Methods.Variable(code, codeRow);
+                        VariableMethods.Variable(code, codeRow);
                         break;
 
                     case "Läs":
-                        Methods.Läs(code, codeRow);
+                        LäsMethods.Läs(code, codeRow);
                         break;
                 }
             }

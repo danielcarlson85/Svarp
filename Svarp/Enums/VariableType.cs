@@ -2,7 +2,7 @@
 {
     public enum VariableType
     {
-        Int,
-        String
+        String,
+        Int
     }
 }

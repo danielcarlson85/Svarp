@@ -2,10 +2,9 @@
 
 namespace Svarp
 {
-    class Code
+    public class Code
     {
         public List<StringVariable> StringVariables { get; set; } = new List<StringVariable>();
-
         public List<CodeRow> CodeRows { get; set; } = new();
     }
 }
