@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Svarp
 {
@@ -19,6 +17,22 @@ namespace Svarp
             }
 
             return "";
+        }
+
+        internal static string GetFunctionOperator(string row)
+        {
+            List<string> op = new List<string>()
+            {
+                "*",
+                "+",
+                "-",
+                "/"
+            };
+
+            foreach (var item in op.Where(item => row.Contains(item)))
+                return item;
+
+            return string.Empty;
         }
 
         public static string GetFunctionName(string strSource, string strStart, string strEnd)

@@ -11,6 +11,7 @@
 
             codeRow.RowVariableName = Helpers.GetInputVariableName(row, "{", "}");
             codeRow.RowText = Helpers.GetFunctionInputText(row, "\"", "\"");
+            codeRow.Operator = Helpers.GetFunctionOperator(row);
             code.CodeRows.Add(codeRow);
 
             return code;

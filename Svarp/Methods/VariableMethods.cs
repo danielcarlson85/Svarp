@@ -9,7 +9,7 @@
             if (stringVariable == null)
             {
                 stringVariable = new StringVariable();
-                stringVariable.VariableInputValue = codeRow.RowVariableValue;
+                stringVariable.VariableInputValue = codeRow.RowText;
                 stringVariable.VariableName = codeRow.RowVariableName;
             }
             else

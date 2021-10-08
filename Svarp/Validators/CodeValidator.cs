@@ -13,6 +13,7 @@ namespace SWarp.Validators
                 {
                     continue;
                 }
+
                 if (row.StartsWith("--"))
                 {
                     continue;

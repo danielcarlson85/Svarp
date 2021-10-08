@@ -1,5 +1,6 @@
 ﻿using Svarp.Methods;
 using SWarp.FileHandler;
+using SWarp.Methods;
 using SWarp.Validators;
 using System;
 using System.Threading.Tasks;
@@ -36,6 +37,10 @@ namespace Svarp
 
                     case "Läs":
                         LäsMethods.Läs(code, codeRow);
+                        break;
+
+                    case "RäknaUt":
+                        RäknaUtMethods.RäknaUt(code, codeRow);
                         break;
                 }
             }
