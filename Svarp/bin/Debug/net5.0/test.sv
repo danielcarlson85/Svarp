@@ -1,11 +1,14 @@
-﻿{input1}(Läs)
+﻿{var1}="första variabel"
+
+
+(Skriv)"hej"
+
+{input1}(Läs)
 {input2}(Läs)
 
 (Skriv){input2}
-(Skriv){input1}
 
 
-{var1}="första variabel"
 (Skriv){var1}
 
 

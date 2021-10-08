@@ -1,30 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Svarp
 {
-    class StringVariable
-    {
-        public string VariableName { get; set; }
-        public string VariableInputValue { get; set; }
-    }
-
-    class Function
-    {
-        public List<StringVariable> StringVariable { get; set; } = new List<StringVariable>();
-        public string VariableNameCache { get; set; }
-        public string VariableInputValueCache { get; set; }
-
-        public string FunctionName { get; set; }
-    }
-
     class Program
     {
-        private static Function function = new Function();
-
+        static Code Code = new Code();
 
         static async Task Main(string[] args)
         {
@@ -48,86 +31,125 @@ namespace Svarp
                     continue;
                 }
 
+                CodeRow codeRow = new CodeRow();
 
                 var functionName = Helpers.GetFunctionName(row, "(", ")");
-                function.FunctionName = string.IsNullOrEmpty(functionName) ? "Variable" : functionName;
+                codeRow.FunctionName = string.IsNullOrEmpty(functionName) ? "Variable" : functionName;
 
-                function.VariableNameCache = Helpers.GetInputVariableName(row, "{", "}");
-                function.VariableInputValueCache = Helpers.GetFunctionInputText(row, "=\"", "\"");
+                codeRow.RowVariableName = Helpers.GetInputVariableName(row, "{", "}");
+                codeRow.RowVariableValue = Helpers.GetFunctionInputText(row, "\"", "\"");
 
-                RunFunction(function);
+                codeRow.RowText = Helpers.GetFunctionInputText(row, "\"", "\"");
+
+                Code.CodeRows.Add(codeRow);
+
             }
+            Run(Code);
+
+
             return null;
         }
 
-
-        private static string RunFunction(Function function)
+        private static void Run(Code code)
         {
-            switch (function.FunctionName)
+            foreach (var codeRow in code.CodeRows)
             {
-                case "Skriv":
+                switch (codeRow.FunctionName)
+                {
+                    case "Skriv":
+                        Methods.Skriv(code, codeRow);
+                        break;
 
-                    var variable = function.StringVariable.Find(v => v.VariableName == function.VariableNameCache);
+                    case "Variable":
 
-                    if (variable != null)
-                    {
-                        if (string.IsNullOrEmpty(variable.VariableInputValue))
+                        var stringVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
+
+                        if (stringVariable == null)
                         {
-                            Console.WriteLine(function.VariableInputValueCache);
+                            stringVariable = new StringVariable();
+                            stringVariable.VariableInputValue = codeRow.RowVariableValue;
+                            stringVariable.VariableName = codeRow.RowVariableName;
+                            code.StringVariables.Add(stringVariable);
                         }
-
-                        Console.WriteLine(variable.VariableInputValue);
-                    }
-
-                    else
-                    {
-                        Console.WriteLine(function.VariableInputValueCache);
-                    }
-                    
-                    break;
-
-                case "Variable":
-
-                    var stringVariable = function.StringVariable.Find(v => v.VariableName == function.VariableNameCache);
-
-                    if (stringVariable == null)
-                    {
-                        stringVariable = new StringVariable();
-                        stringVariable.VariableInputValue = function.VariableInputValueCache;
-                        stringVariable.VariableName = function.VariableNameCache;
-                        function.StringVariable.Add(stringVariable);
-                    }
-                    else
-                    {
-                        stringVariable.VariableInputValue = function.VariableInputValueCache;
-                    }
-
-                    break;
-
-                case "Läs":
-
-                    var inData = Console.ReadLine();
-                    stringVariable = function.StringVariable.Find(v => v.VariableName == function.VariableNameCache);
-
-                    if (stringVariable == null)
-                    {
-                        stringVariable = new StringVariable();
-                        stringVariable.VariableInputValue = inData;
-                        stringVariable.VariableName = function.VariableNameCache;
-                        function.StringVariable.Add(stringVariable);
-                    }
-                    else
-                    {
-                        stringVariable.VariableInputValue = function.VariableInputValueCache;
-                    }
-
-                    break;
-                default:
-                    break;
+                        else
+                        {
+                            stringVariable.VariableInputValue = codeRow.RowVariableValue;
+                        }
+                        break;
+                }
             }
-
-            return null;
         }
+
+
+
+
+        //private static string RunFunction(Code code)
+        //{
+        //    switch (function.FunctionName)
+        //    {
+        //        case "Skriv":
+
+        //            var variable = function.StringVariable.Find(v => v.VariableName == function.VariableNameCache);
+
+        //            if (variable != null)
+        //            {
+        //                if (string.IsNullOrEmpty(variable.VariableInputValue))
+        //                {
+        //                    Console.WriteLine(function.VariableInputValueCache);
+        //                }
+
+        //                Console.WriteLine(variable.VariableInputValue);
+        //            }
+
+        //            else
+        //            {
+        //                Console.WriteLine(function.VariableInputValueCache);
+        //            }
+
+        //            break;
+
+        //        case "Variable":
+
+        //            var stringVariable = function.StringVariable.Find(v => v.VariableName == function.VariableNameCache);
+
+        //            if (stringVariable == null)
+        //            {
+        //                stringVariable = new StringVariable();
+        //                stringVariable.VariableInputValue = function.VariableInputValueCache;
+        //                stringVariable.VariableName = function.VariableNameCache;
+        //                function.StringVariable.Add(stringVariable);
+        //            }
+        //            else
+        //            {
+        //                stringVariable.VariableInputValue = function.VariableInputValueCache;
+        //            }
+
+        //            break;
+
+        //        case "Läs":
+
+        //            var inData = Console.ReadLine();
+        //            stringVariable = function.StringVariable.Find(v => v.VariableName == function.VariableNameCache);
+
+        //            if (stringVariable == null)
+        //            {
+        //                stringVariable = new StringVariable();
+        //                stringVariable.VariableInputValue = inData;
+        //                stringVariable.VariableName = function.VariableNameCache;
+        //                function.StringVariable.Add(stringVariable);
+        //            }
+        //            else
+        //            {
+        //                stringVariable.VariableInputValue = function.VariableInputValueCache;
+        //            }
+
+        //            break;
+        //        default:
+        //            break;
+        //    }
+
+        //    return null;
+        //}
 
 
     }
