@@ -1,6 +1,24 @@
-﻿--Detta är en kommentar
+﻿MetodStart:Räkna
+	teste{namn}(LäsInklTitel)"Vad heter du? "
+	test{ålder}(LäsInklTitel)"Hur gammal är du?"
+	teset{nummers}"5+5"
+MetodStop
 
---(SåLänge){1<200000} @(SkrivUt)"Hello World!"@
+
+MetodStart:Sluta
+	{namn}(LäsInklTitel)"Vad heter du? "
+	{ålder}(LäsInklTitel)"Hur gammal är du?"
+	{nummers}"5+5"
+MetodStop
+
+--Detta är en kommentar
+(SåLänge){1<200000} @{nummers}"5+5"@
+
+
+
+	
+
+
 
 --{namn}(LäsInklTitel)"Vad heter du? "
 --{ålder}(LäsInklTitel)"Hur gammal är du?"
@@ -12,7 +30,7 @@
 
 
 (SkrivUt)"Hej"
-{variabelNamn}(LäsInklTitel)"Detta skrivs ut också"
+{variabelNamn}(LäsInklTitel)"Detta skrivs ut också när du gör en Läs: "
 (SkrivUtVariabel){variabelNamn}
 
 --{nummers}"uppdaterade variabeln"

@@ -78,21 +78,6 @@ namespace Svarp
             return "";
         }
 
-        public static string GetFunction(string text, string stopAt = "-")
-        {
-            if (!String.IsNullOrWhiteSpace(text))
-            {
-                int charLocation = text.IndexOf(stopAt, StringComparison.Ordinal);
-
-                if (charLocation > 0)
-                {
-                    return text.Substring(0, charLocation);
-                }
-            }
-
-            return String.Empty;
-        }
-
         public static string GetFunctionInputText(string strSource, string strStart, string strEnd)
         {
             if (strSource.Contains(strStart) && strSource.Contains(strEnd))
