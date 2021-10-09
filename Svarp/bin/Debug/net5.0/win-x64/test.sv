@@ -6,8 +6,8 @@
 --{ålder}(LäsInklTitel)"Hur gammal är du?"
 --(SkrivUtVariabelOchText){namn}"Välkommen "
 --(SkrivUtVariabelOchText){ålder}"Du är "
---{nummers}"första variabeln"
---(SkrivUtVariabel){nummers}
+{nummers}"första variabeln"
+(SkrivUtVariabel){nummers}
 --{nummers}"uppdaterade variabeln"
 --(SkrivUtVariabel){nummers}
 --(SkrivUt)"hej"

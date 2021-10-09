@@ -1,11 +1,7 @@
-﻿using Svarp.Methods;
-using SWarp;
+﻿using SWarp;
 using SWarp.FileHandler;
-using SWarp.Methods;
-using SWarp.Validators;
 using System;
 using System.Diagnostics;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Svarp
@@ -32,9 +28,9 @@ namespace Svarp
         {
             int nummer = 0;
 
-            while (nummer < 200000)
+            while (nummer < 100000)
             {
-                Console.WriteLine(nummer + "Hello world");
+                //Console.WriteLine(nummer + "Hello world");
                 nummer++;
             }
         }
@@ -45,7 +41,7 @@ namespace Svarp
 
             var file = await FileHandler.LoadFromFile(args);
 
-            Code = CodeValidator.ValidateCode(Code, file);
+            Code = Lexer.LexCode(Code, file);
 
             foreach (var codeRow in Code.CodeRows)
             {

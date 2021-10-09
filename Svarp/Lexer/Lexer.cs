@@ -1,22 +1,30 @@
-﻿namespace Svarp
+﻿using System.Collections.Generic;
+
+namespace Svarp
 {
     class Lexer
     {
-        public static Code LexCode(Code code, string row)
+        public static Code LexCode(Code code, List<string> file)
         {
-            CodeRow codeRow = new();
+            foreach (var row in file)
+            {
+                if (string.IsNullOrEmpty(row)) continue;
+                if (row.StartsWith("--")) continue;
 
-            var functionName = Parser.GetFunctionName(row, "(", ")");
-            codeRow.FunctionName = string.IsNullOrEmpty(functionName) ? "Variabel" : functionName;
+                CodeRow codeRow = new();
+                var functionName = Parser.GetFunctionName(row, "(", ")");
+                codeRow.FunctionName = string.IsNullOrEmpty(functionName) ? "Variabel" : functionName;
 
-            codeRow.RowVariableName = Parser.GetInputVariableName(row, "{", "}");
-            codeRow.RowText = Parser.GetFunctionInputText(row, "\"", "\"");
-            codeRow.Operator = Parser.GetFunctionOperator(row);
+                codeRow.RowVariableName = Parser.GetInputVariableName(row, "{", "}");
+                codeRow.RowText = Parser.GetFunctionInputText(row, "\"", "\"");
+                codeRow.Operator = Parser.GetFunctionOperator(row);
+
+                var delegateCode = Parser.GetDelegateFromRow(row, "@", "@");
+                codeRow.Delegate = GetDelegate(delegateCode);
+
+                code.CodeRows.Add(codeRow);
+            }
             
-            var delegateCode = Parser.GetDelegateFromRow(row, "@", "@");
-            codeRow.Delegate = GetDelegate(delegateCode);
-
-            code.CodeRows.Add(codeRow);
             return code;
         }
 
