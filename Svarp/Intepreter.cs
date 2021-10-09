@@ -37,7 +37,7 @@ namespace SWarp
                     break;
 
                 case "RäknaUtVariabel":
-                    RäknaUtMethods.RäknaUtVariable(code, codeRow);
+                    RäknaUtMethods.RäknaUtVariabel(code, codeRow);
                     break;
 
                 case "RäknaUt":

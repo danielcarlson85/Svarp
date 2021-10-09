@@ -13,9 +13,12 @@
 		(RäknaUt)"nummer1*nummer2"
 		(RäknaUt)"nummer1/nummer2"
 
-- Räkna ut nummer via variabel och skriv resultatet på skärmen(Tillfälligt):
+- Räkna ut nummer via variabel och spara i samma variabel(Tillfälligt):
 		{variabelName}"nummer1+nummer2"
-		(RäknaUt){variabelNamn}
+		(RäknaUtVariabel){variabelNamn}
+
+		(SkrivUtVariabel){nummers}
+
 		
 
 

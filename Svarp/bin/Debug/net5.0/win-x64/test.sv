@@ -1,13 +1,20 @@
 ﻿--Detta är en kommentar
 
-(SåLänge){1<200000} @(SkrivUt)"Hello World!"@
+--(SåLänge){1<200000} @(SkrivUt)"Hello World!"@
 
 --{namn}(LäsInklTitel)"Vad heter du? "
 --{ålder}(LäsInklTitel)"Hur gammal är du?"
 --(SkrivUtVariabelOchText){namn}"Välkommen "
 --(SkrivUtVariabelOchText){ålder}"Du är "
-{nummers}"första variabeln"
+{nummers}"5+5"
+(RäknaUtVariabel){nummers}
 (SkrivUtVariabel){nummers}
+
+
+(SkrivUt)"Hej"
+{variabelNamn}(LäsInklTitel)"Detta skrivs ut också"
+(SkrivUtVariabel){variabelNamn}
+
 --{nummers}"uppdaterade variabeln"
 --(SkrivUtVariabel){nummers}
 --(SkrivUt)"hej"
