@@ -4,8 +4,7 @@
 		{variabelName}"variabel text"
 
 
-- Skriva ut en variabel:
-		(SkrivVariabel){variabelName}
+
 
 
 - Räkna ut nummer och skriv resultatet på skärmen(Tillfälligt):
@@ -14,13 +13,33 @@
 		(RäknaUt)"nummer1*nummer2"
 		(RäknaUt)"nummer1/nummer2"
 
+- Räkna ut nummer via variabel och skriv resultatet på skärmen(Tillfälligt):
+		{variabelName}"nummer1+nummer2"
+		(RäknaUt){variabelNamn}
+		
+
+
+
+
+
+- Loopa med function:
+
+		(SåLänge){1<200000} @(SkrivUt)"Hello World!"@
+
+
+
+
+
 
 - Läs text från användaren, sparas i variabeln {variabelNamn}
 		{variabelNamn}(LäsIn)
 
-
 - Läs text från användaren med titeltext, sparas i variabeln {variabelNamn}
 		{variabelNamn}(LäsInklTitel)"Detta skrivs ut också"
+
+
+
+
 
 - Skriv ut text på skärmen:
 		(SkrivUt)"Detta är texten som kommer skrivas ut"
