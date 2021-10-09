@@ -27,22 +27,29 @@ namespace Svarp
             {
                 switch (codeRow.FunctionName)
                 {
-                    case "Skriv":
-                        SkrivMethods.Skriv(code, codeRow);
+                    case "SkrivUt":
+                        SkrivMethods.SkrivUt(code, codeRow);
                         break;
-                    case "SkrivVariabel":
-                        SkrivMethods.SkrivVariable(code, codeRow);
-                        break;
-
-                    case "Variable":
-                        VariableMethods.Variable(code, codeRow);
+                    case "SkrivUtVariabel":
+                        SkrivMethods.SkrivUtVariabel(code, codeRow);
                         break;
 
-                    case "Läs":
-                        LäsMethods.Läs(code, codeRow);
+                    case "SkrivUtVariabelOchText":
+                        SkrivMethods.SkrivUtVariabelOchText(code, codeRow);
                         break;
 
-                    case "RäknaUtVariable":
+                    case "Variabel":
+                        VariableMethods.Variabel(code, codeRow);
+                        break;
+
+                    case "LäsIn":
+                        LäsMethods.LäsIn(code, codeRow);
+                        break;
+                    case "LäsInklTitel":
+                        LäsMethods.LäsInklTitel(code, codeRow);
+                        break;
+
+                    case "RäknaUtVariabel":
                         RäknaUtMethods.RäknaUtVariable(code, codeRow);
                         break;
 

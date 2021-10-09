@@ -7,7 +7,7 @@
             CodeRow codeRow = new();
 
             var functionName = Parser.GetFunctionName(row, "(", ")");
-            codeRow.FunctionName = string.IsNullOrEmpty(functionName) ? "Variable" : functionName;
+            codeRow.FunctionName = string.IsNullOrEmpty(functionName) ? "Variabel" : functionName;
 
             codeRow.RowVariableName = Parser.GetInputVariableName(row, "{", "}");
             codeRow.RowText = Parser.GetFunctionInputText(row, "\"", "\"");

@@ -8,16 +8,29 @@ namespace Svarp.Methods
 {
     public class SkrivMethods
     {
-        public static void Skriv(Code code, CodeRow codeRow)
+        public static void SkrivUt(Code code, CodeRow codeRow)
         {
             Console.WriteLine(codeRow.RowText);
         }
 
-        internal static void SkrivVariable(Code code, CodeRow codeRow)
+        internal static void SkrivUtVariabel(Code code, CodeRow codeRow)
         {
             var variable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
 
-            if (variable != null) Console.WriteLine(variable.VariableValue);
+            if (variable != null)
+            {
+                Console.WriteLine(variable.VariableValue);
+            }
+        }
+
+        internal static void SkrivUtVariabelOchText(Code code, CodeRow codeRow)
+        {
+            var variable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
+
+            if (variable is not null)
+            {
+                Console.WriteLine(codeRow.RowText + variable.VariableValue);
+            }
         }
     }
 }

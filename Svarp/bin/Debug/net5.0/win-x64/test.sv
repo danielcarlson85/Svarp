@@ -1,15 +1,14 @@
 ﻿--Detta är en kommentar
 
-{variabel5}(Läs)
-{variabel6}(Läs)"Vad heter du? "
-
-(SkrivVariabel){variabel6}
-
-
+{namn}(LäsInklTitel)"Vad heter du? "
+{ålder}(LäsInklTitel)"Hur gammal är du?"
+(SkrivUtVariabelOchText){namn}"Välkommen "
+(SkrivUtVariabelOchText){ålder}"Du är "
 
 
 
-{nummers}"1+1"
+
+{nummers}"variabel tjoho"
 
 
 (SkrivVariabel){nummers}
@@ -35,6 +34,9 @@
 
 
 
+{variabel6}"Daniel"
+(SkrivVariabelOchText){variabel6}"hej "
+
 (SkrivVariabel){nummers}
 
 (RäknaUt)"22+22"
@@ -47,3 +49,9 @@
 
 (Läs)"Vad heter du? "{var1}
 (Skriv)"Hej "{var1}
+
+
+--{nummers}(LäsInklTitel)"Räkna ut: "
+--(RäknaUtVariabel){nummers}
+--(SkrivUtVariabelOchText){nummers}"Detta skrivs ut också"
+--(SkrivUtVariabel){nummers}

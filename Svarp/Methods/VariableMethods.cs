@@ -2,7 +2,7 @@
 {
     public static class VariableMethods
     {
-        public static void Variable(Code code, CodeRow codeRow)
+        public static void Variabel(Code code, CodeRow codeRow)
         {
             var stringVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
 
