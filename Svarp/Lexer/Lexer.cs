@@ -4,14 +4,14 @@
     {
         public static Code LexCode(Code code, string row)
         {
-            CodeRow codeRow = new CodeRow();
+            CodeRow codeRow = new();
 
-            var functionName = Helpers.GetFunctionName(row, "(", ")");
+            var functionName = Parser.GetFunctionName(row, "(", ")");
             codeRow.FunctionName = string.IsNullOrEmpty(functionName) ? "Variable" : functionName;
 
-            codeRow.RowVariableName = Helpers.GetInputVariableName(row, "{", "}");
-            codeRow.RowText = Helpers.GetFunctionInputText(row, "\"", "\"");
-            codeRow.Operator = Helpers.GetFunctionOperator(row);
+            codeRow.RowVariableName = Parser.GetInputVariableName(row, "{", "}");
+            codeRow.RowText = Parser.GetFunctionInputText(row, "\"", "\"");
+            codeRow.Operator = Parser.GetFunctionOperator(row);
             code.CodeRows.Add(codeRow);
 
             return code;

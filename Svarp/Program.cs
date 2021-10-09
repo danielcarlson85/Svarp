@@ -30,6 +30,9 @@ namespace Svarp
                     case "Skriv":
                         SkrivMethods.Skriv(code, codeRow);
                         break;
+                    case "SkrivVariabel":
+                        SkrivMethods.SkrivVariable(code, codeRow);
+                        break;
 
                     case "Variable":
                         VariableMethods.Variable(code, codeRow);
@@ -37,6 +40,10 @@ namespace Svarp
 
                     case "Läs":
                         LäsMethods.Läs(code, codeRow);
+                        break;
+
+                    case "RäknaUtVariable":
+                        RäknaUtMethods.RäknaUtVariable(code, codeRow);
                         break;
 
                     case "RäknaUt":

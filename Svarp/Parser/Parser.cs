@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Svarp
 {
-    static class Helpers
+    static class Parser
     {
         public static string GetInputVariableName(string strSource, string strStart, string strEnd)
         {

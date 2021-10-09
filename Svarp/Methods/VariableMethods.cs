@@ -14,7 +14,7 @@
             }
             else
             {
-                stringVariable.VariableValue = codeRow.RowVariableValue;
+                stringVariable.VariableValue = codeRow.RowText;
             }
 
             code.StringVariables.Add(stringVariable);

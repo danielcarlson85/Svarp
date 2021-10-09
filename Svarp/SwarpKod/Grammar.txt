@@ -1,0 +1,21 @@
+﻿SWarp syntax
+
+skapa en variabel:
+{variabelName}"variabel text"
+
+
+Skriva ut en variabel:
+(SkrivVariabel){variabelName}
+
+
+Räkna ut nummer:
+(RäknaUt)"nummer1+nummer2"
+(RäknaUt)"nummer1-nummer2"
+(RäknaUt)"nummer1*nummer2"
+(RäknaUt)"nummer1/nummer2"
+
+Läs text från användaren (readline)
+{variabelNamn}(Läs)
+
+Läs text från användaren inkl start text (readline)
+{variabelNamn}(Läs)"Text att skriva ut"

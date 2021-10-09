@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="SwarpKod\Grammar.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="SwarpKod\Grammar.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="bin\Debug\net5.0\win-x64\test.sv" />
     <None Include="bin\Release\net5.0\publish\test.sv" />
   </ItemGroup>

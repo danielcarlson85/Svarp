@@ -10,21 +10,14 @@ namespace Svarp.Methods
     {
         public static void Skriv(Code code, CodeRow codeRow)
         {
+            Console.WriteLine(codeRow.RowText);
+        }
+
+        internal static void SkrivVariable(Code code, CodeRow codeRow)
+        {
             var variable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
 
-            if (variable is not null)
-            {
-                if (string.IsNullOrEmpty(variable.VariableValue))
-                {
-                    Console.WriteLine(codeRow.RowText);
-                }
-
-                Console.WriteLine(codeRow.RowText + variable.VariableValue);
-            }
-            else
-            {
-                Console.WriteLine(codeRow.RowText);
-            }
+            if (variable != null) Console.WriteLine(variable.VariableValue);
         }
     }
 }

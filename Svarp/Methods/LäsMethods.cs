@@ -7,21 +7,24 @@ namespace Svarp.Methods
         public static void Läs(Code code, CodeRow codeRow)
         {
             Console.Write(codeRow.RowText);
-            var stringVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
+            var rowVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
 
             var inData = Console.ReadLine();
-            if (stringVariable == null)
+
+            if (rowVariable != null)
             {
-                stringVariable = new StringVariable();
-                stringVariable.VariableValue = inData;
-                stringVariable.VariableName = codeRow.RowVariableName;
+                rowVariable.VariableValue = codeRow.RowVariableValue;
             }
             else
             {
-                stringVariable.VariableValue = codeRow.RowVariableValue;
+                rowVariable = new StringVariable
+                {
+                    VariableValue = inData,
+                    VariableName = codeRow.RowVariableName
+                };
             }
 
-            code.StringVariables.Add(stringVariable);
+            code.StringVariables.Add(rowVariable);
         }
     }
 }
