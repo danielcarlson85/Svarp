@@ -78,8 +78,14 @@ namespace Svarp
             return "";
         }
 
+
         public static string GetFunctionInputText(string strSource, string strStart, string strEnd)
         {
+            if (strSource == string.Empty)
+            {
+                return string.Empty;
+            }
+
             if (strSource.Contains(strStart) && strSource.Contains(strEnd))
             {
                 int Start, End;

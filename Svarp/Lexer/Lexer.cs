@@ -16,10 +16,8 @@ namespace Svarp
                 if (row.StartsWith("Metod")) continue;
                 if (row.StartsWith('\t')) continue;
 
-                var delegateCode = Parser.GetDelegateFromRow(row, "@", "@");
 
                 var codeRow = GetMethodValues(row);
-                codeRow.Delegate = GetMethodValues(delegateCode);
                 code.CodeRows.Add(codeRow);
             }
 
@@ -72,6 +70,9 @@ namespace Svarp
 
             var functionName = Parser.GetFunctionName(delegateCode, "(", ")");
             codeRow.FunctionName = string.IsNullOrEmpty(functionName) ? "Variabel" : functionName;
+
+            var deledgateCode = Parser.GetDelegateFromRow(delegateCode, "@", "@");
+            codeRow.Delegate = GetMethodValues(deledgateCode);
 
             codeRow.RowVariableName = Parser.GetInputVariableName(delegateCode, "{", "}");
             codeRow.RowText = Parser.GetFunctionInputText(delegateCode, "\"", "\"");
