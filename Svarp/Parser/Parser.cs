@@ -19,9 +19,26 @@ namespace Svarp
             return "";
         }
 
+        internal static string GetLoopValues(string row)
+        {
+            List<string> op = new()
+            {
+                "<",
+                ">",
+                "==",
+                "<=",
+                ">="
+            };
+
+            foreach (var item in op.Where(item => row.Contains(item)))
+                return item;
+
+            return string.Empty;
+        }
+
         internal static string GetFunctionOperator(string row)
         {
-            List<string> op = new List<string>()
+            List<string> op = new()
             {
                 "*",
                 "+",
@@ -36,6 +53,19 @@ namespace Svarp
         }
 
         public static string GetFunctionName(string strSource, string strStart, string strEnd)
+        {
+            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            {
+                int Start, End;
+                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
+                End = strSource.IndexOf(strEnd, Start);
+                return strSource.Substring(Start, End - Start);
+            }
+
+            return "";
+        }
+
+        public static string GetDelegateFromRow(string strSource, string strStart, string strEnd)
         {
             if (strSource.Contains(strStart) && strSource.Contains(strEnd))
             {

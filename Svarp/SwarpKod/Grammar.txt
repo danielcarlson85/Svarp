@@ -8,7 +8,7 @@
 		(SkrivVariabel){variabelName}
 
 
-- Räkna ut nummer:
+- Räkna ut nummer och skriv resultatet på skärmen(Tillfälligt):
 		(RäknaUt)"nummer1+nummer2"
 		(RäknaUt)"nummer1-nummer2"
 		(RäknaUt)"nummer1*nummer2"
@@ -16,17 +16,17 @@
 
 
 - Läs text från användaren, sparas i variabeln {variabelNamn}
-		{variabelNamn}(Läs)
+		{variabelNamn}(LäsIn)
 
 
 - Läs text från användaren med titeltext, sparas i variabeln {variabelNamn}
-		{variabelNamn}(Läs)"Detta skrivs ut också"
+		{variabelNamn}(LäsInklTitel)"Detta skrivs ut också"
 
 - Skriv ut text på skärmen:
-		(Skriv)"Detta är texten som kommer skrivas ut"
+		(SkrivUt)"Detta är texten som kommer skrivas ut"
 
 - Skriv ut variabel på skärmen
-		(SkrivVariabel){variabelNamn}
+		(SkrivUtVariabel){variabelNamn}
 
 - Skriv ut text och variabel på skärm
 		(SkrivUtVariabelOchText){variabelNamn}"Detta skrivs ut också"

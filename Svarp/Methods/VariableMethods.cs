@@ -8,16 +8,32 @@
 
             if (stringVariable == null)
             {
-                stringVariable = new StringVariable();
-                stringVariable.VariableValue = codeRow.RowText;
-                stringVariable.VariableName = codeRow.RowVariableName;
+                stringVariable = new StringVariable
+                {
+                    VariableValue = codeRow.RowText,
+                    VariableName = codeRow.RowVariableName
+                };
             }
             else
             {
                 stringVariable.VariableValue = codeRow.RowText;
             }
 
-            code.StringVariables.Add(stringVariable);
+            CheckIfVariableExistAndUpdate(code, stringVariable);
+        }
+
+        private static void CheckIfVariableExistAndUpdate(Code code, StringVariable stringVariable)
+        {
+            var variebleExist = code.StringVariables.Find(v => v.VariableName == stringVariable.VariableName);
+
+            if (variebleExist == null)
+            {
+                code.StringVariables.Add(stringVariable);
+            }
+            else
+            {
+                code.StringVariables.Find(v => v.VariableName == stringVariable.VariableName).VariableValue = stringVariable.VariableValue;
+            }
         }
     }
 }

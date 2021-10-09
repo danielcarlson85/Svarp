@@ -1,5 +1,10 @@
 ﻿--Detta är en kommentar
 
+(SåLänge){1<10} @(SkrivUt)"hej"@
+
+
+(SåLänge){1<10}   @(SkrivUt)   "sdfsdf"    @
+
 {namn}(LäsInklTitel)"Vad heter du? "
 {ålder}(LäsInklTitel)"Hur gammal är du?"
 (SkrivUtVariabelOchText){namn}"Välkommen "
@@ -8,13 +13,17 @@
 
 
 
-{nummers}"variabel tjoho"
+{nummers}"första variabeln"
+
+(SkrivUtVariabel){nummers}
 
 
-(SkrivVariabel){nummers}
+{nummers}"uppdaterade variabeln"
+
+(SkrivUtVariabel){nummers}
 
 
-(Skriv)"hej"
+(SkrivUt)"hej"
 (RäknaUt)"4+4"
 
 
@@ -23,32 +32,32 @@
 
 (RäknaUtVariable){nummers}
 
-(SkrivVariabel){nummers}
+(SkrivUtVariabel){nummers}
 
 
 
 
-{variabel1}(Läs)"hej"
+{variabel1}(LäsIn)"hej"
 
 
 
 
 
 {variabel6}"Daniel"
-(SkrivVariabelOchText){variabel6}"hej "
+(SkrivUtVariabelOchText){variabel6}"hej "
 
-(SkrivVariabel){nummers}
+(SkrivUtVariabel){nummers}
 
 (RäknaUt)"22+22"
 
 {variabel2}"Detta är värdet i variabeln"
-(Skriv){variabel2}
+(SkrivUt){variabel2}
 
 (RäknaUt)"34*44"
 
 
-(Läs)"Vad heter du? "{var1}
-(Skriv)"Hej "{var1}
+(LäsIn)"Vad heter du? "{var1}
+(SkrivUt)"Hej "{var1}
 
 
 --{nummers}(LäsInklTitel)"Räkna ut: "

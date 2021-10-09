@@ -8,14 +8,13 @@ namespace SWarp.Methods
     {
         internal static void RäknaUt(Code code, CodeRow codeRow)
         {
-            string number1 = string.Empty;
             string number2 = string.Empty;
 
             if (codeRow.RowText != null)
             {
                 var op = Parser.GetFunctionOperator(codeRow.RowText);
                 codeRow.Operator = op;
-                number1 = codeRow.RowText.Split(op)[0];
+                string number1 = codeRow.RowText.Split(op)[0];
                 number2 = codeRow.RowText.Split(op)[1];
 
                 var result = 0;
