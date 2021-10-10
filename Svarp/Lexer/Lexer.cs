@@ -31,14 +31,14 @@ namespace Svarp
 
             foreach (var item in file)
             {
-                if (item.StartsWith("MetodStart"))
+                if (item.StartsWith("(MetodStart)"))
                 {
                     isMetod = true;
                     method = new();
                     method.MenthodName = item.Split(":")[1];
                 }
 
-                if (item.StartsWith("MetodStop"))
+                if (item.StartsWith("(MetodStop)"))
                 {
                     isMetod = false;
                     code.Methods.Add(method);
@@ -46,7 +46,7 @@ namespace Svarp
 
                 if (isMetod)
                 {
-                    if (!item.StartsWith("MetodStart"))
+                    if (!item.StartsWith("(MetodStart)"))
                     {
                         var codeRow = GetMethodValues(item);
                         method.CodeRows.Add(codeRow);

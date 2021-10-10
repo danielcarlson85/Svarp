@@ -8,26 +8,23 @@
 
 
 
-MetodStart:Räkna
+(MetodStart):Räkna
 
 	{nummers}"10*2343"
 	(RäknaUtVariabel){nummers}
 	(SkrivUtVariabel){nummers}
 	
-	(SåLänge){0<5}@(KörMetod){Räkna}@
+	(SåLänge){0<5}@(KörMetod){Sluta}@
+(MetodStop)
 
 
-
-MetodStop
-
-
-MetodStart:Sluta
+(MetodStart):Sluta
 	{namn}(LäsInklTitel)"Vad heter du? "
 	{ålder}(LäsInklTitel)"Hur gammal är du?"
 	{nummers}"5+5"
 	(RäknaUtVariabel){nummers}
 	(SkrivUtVariabel){nummers}
-MetodStop
+(MetodStop)
 
 
 --(SåLänge){1<200000}@(SkrivUtVariabel){nummers}@
