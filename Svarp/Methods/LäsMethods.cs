@@ -4,7 +4,7 @@ namespace Svarp.Methods
 {
     class LäsMethods
     {
-        public static void LäsIn(Code code, CodeRow codeRow)
+        public static void LäsIn(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             var rowVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
 
@@ -16,7 +16,7 @@ namespace Svarp.Methods
             }
             else
             {
-                rowVariable = new StringVariable
+                rowVariable = new Variables
                 {
                     VariableValue = inData,
                     VariableName = codeRow.RowVariableName
@@ -26,7 +26,7 @@ namespace Svarp.Methods
             CheckIfVariableExistAndUpdate(code, rowVariable);
         }
 
-        internal static void LäsInklTitel(Code code, CodeRow codeRow)
+        internal static void LäsInklTitel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             Console.Write(codeRow.RowText);
             var rowVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
@@ -39,7 +39,7 @@ namespace Svarp.Methods
             }
             else
             {
-                rowVariable = new StringVariable
+                rowVariable = new Variables
                 {
                     VariableValue = inData,
                     VariableName = codeRow.RowVariableName
@@ -50,7 +50,7 @@ namespace Svarp.Methods
         }
 
 
-        private static void CheckIfVariableExistAndUpdate(Code code, StringVariable rowVariable)
+        private static void CheckIfVariableExistAndUpdate(ProgramCode code, Variables rowVariable)
         {
             var variebleExist = code.StringVariables.Find(v => v.VariableName == rowVariable.VariableName);
 

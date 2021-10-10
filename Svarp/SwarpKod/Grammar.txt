@@ -2,8 +2,22 @@
 ***********************************************************************************************************
 
 
+Förklaringar:
 
-- skapa en variabel:
+(Metod)						Delklarera metod
+{Variabel}					Delklarera Variabel
+"RowText"					Delklarera text till metod eller variabel
+@Delegate@					Delklarera kod som ska köras i egna metoden
+MetodStart:MetodNamn		Start av metoden och namnet på metoden
+MetodStop					Slut av metoden
+
+
+
+***********************************************************************************************************
+
+
+
+- Skapa en variabel:
 		{variabelName}"variabel text"
 
 
@@ -70,9 +84,9 @@
 - Skapa en metod:
 
 		MetodStart:NamnetPåMetoden
-			teste{namn}(LäsInklTitel)"Vad heter du? "
-			test{ålder}(LäsInklTitel)"Hur gammal är du?"
-			teset{nummers}"5+5"
+			{namn}(LäsInklTitel)"Vad heter du? "
+			{ålder}(LäsInklTitel)"Hur gammal är du?"
+			{nummers}"5+5"
 		MetodStop
 
 

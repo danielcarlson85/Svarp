@@ -6,7 +6,7 @@ namespace SWarp.Methods
 {
     public static class RäknaUtMethods
     {
-        internal static void RäknaUt(Code code, CodeRow codeRow)
+        internal static void RäknaUt(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             string number2 = string.Empty;
 
@@ -44,7 +44,7 @@ namespace SWarp.Methods
         }
 
 
-        internal static void RäknaUtVariabel(Code code, CodeRow codeRow)
+        internal static void RäknaUtVariabel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             string number1 = string.Empty;
             string number2 = string.Empty;

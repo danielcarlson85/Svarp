@@ -1,22 +1,21 @@
-﻿(KörMetod){Sluta}
-
-
+﻿(KörMetod){Räkna}
 
 
 
 MetodStart:Räkna
-	{namn}(LäsInklTitel)"Vad heter du? "
-	(SkrivUt)"Hej"
-MetodStop
-
-
-MetodStart:Sluta
-	{namn}(LäsInklTitel)"Vad heter du? "
-	{ålder}(LäsInklTitel)"Hur gammal är du?"
 	{nummers}"5+5"
 	(RäknaUtVariabel){nummers}
-	(SkrivUtVariabel){nummers}
+	(SåLänge){1<100}@(SkrivUtVariabel){nummers}@
 MetodStop
+
+
+--MetodStart:Sluta
+--	{namn}(LäsInklTitel)"Vad heter du? "
+--	{ålder}(LäsInklTitel)"Hur gammal är du?"
+--	{nummers}"5+5"
+--	(RäknaUtVariabel){nummers}
+--	(SkrivUtVariabel){nummers}
+--MetodStop
 
 
 --(SåLänge){1<200000}@(SkrivUtVariabel){nummers}@

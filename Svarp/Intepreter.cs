@@ -6,7 +6,7 @@ namespace SWarp
 {
     class Intepreter
     {
-        public static void Run(Code code, CodeRow codeRow)
+        public static void Run(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             switch (codeRow.MethodName)
             {

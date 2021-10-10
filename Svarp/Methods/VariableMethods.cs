@@ -2,13 +2,13 @@
 {
     public static class VariableMethods
     {
-        public static void Variabel(Code code, CodeRow codeRow)
+        public static void Variabel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             var stringVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
 
             if (stringVariable == null)
             {
-                stringVariable = new StringVariable
+                stringVariable = new Variables
                 {
                     VariableValue = codeRow.RowText,
                     VariableName = codeRow.RowVariableName
@@ -22,7 +22,7 @@
             CheckIfVariableExistAndUpdate(code, stringVariable);
         }
 
-        private static void CheckIfVariableExistAndUpdate(Code code, StringVariable stringVariable)
+        private static void CheckIfVariableExistAndUpdate(ProgramCode code, Variables stringVariable)
         {
             var variebleExist = code.StringVariables.Find(v => v.VariableName == stringVariable.VariableName);
 

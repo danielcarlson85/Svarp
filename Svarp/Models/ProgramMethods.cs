@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SWarp.Models
 {
-    public class Method
+    public class ProgramMethods
     {
         public string MenthodName { get; set; }
 
-        public List<CodeRow> CodeRows { get; set; } = new();
+        public List<ProgramCodeOnRow> CodeRows { get; set; } = new();
 
 
     }

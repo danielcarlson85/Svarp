@@ -5,7 +5,7 @@ namespace Svarp
 {
     class Lexer
     {
-        public static Code LexCode(Code code, List<string> file)
+        public static ProgramCode LexCode(ProgramCode code, List<string> file)
         {
             code = GetMethods(code, file);
 
@@ -24,11 +24,11 @@ namespace Svarp
             return code;
         }
 
-        private static Code GetMethods(Code code, List<string> file)
+        private static ProgramCode GetMethods(ProgramCode code, List<string> file)
         {
             bool isMetod = false;
 
-            Method method = new();
+            ProgramMethods method = new();
 
             foreach (var item in file)
             {
@@ -59,14 +59,14 @@ namespace Svarp
         }
 
 
-        private static CodeRow GetMethodValues(string delegateCode)
+        private static ProgramCodeOnRow GetMethodValues(string delegateCode)
         {
             if (delegateCode == string.Empty)
             {
                 return new();
             }
 
-            CodeRow codeRow = new();
+            ProgramCodeOnRow codeRow = new();
 
             var functionName = Parser.GetFunctionName(delegateCode, "(", ")");
             codeRow.MethodName = string.IsNullOrEmpty(functionName) ? "Variabel" : functionName;

@@ -8,21 +8,30 @@ namespace Svarp
 {
     class Program
     {
-        static Code Code = new();
+        static ProgramCode ProgramCode = new();
 
         static async Task Main(string[] args)
         {
             Stopwatch stopwatch = new();
             stopwatch.Start();
-
-
             await Run(args);
             //Loop();
-
             stopwatch.Stop();
             Console.WriteLine(stopwatch.Elapsed);
             Console.Read();
         }
+
+        static async Task Run(string[] args)
+        {
+            var file = await FileHandler.LoadFromFile(args);
+            ProgramCode = Lexer.LexCode(ProgramCode, file);
+
+            foreach (var codeRow in ProgramCode.CodeRows)
+            {
+                Intepreter.Run(ProgramCode, codeRow);
+            }
+        }
+
 
         static void Loop()
         {
@@ -36,17 +45,5 @@ namespace Svarp
         }
 
 
-        static async Task Run(string[] args)
-        {
-
-            var file = await FileHandler.LoadFromFile(args);
-
-            Code = Lexer.LexCode(Code, file);
-
-            foreach (var codeRow in Code.CodeRows)
-            {
-                Intepreter.Run(Code, codeRow);
-            }
-        }
     }
 }

@@ -4,7 +4,7 @@ namespace SWarp.Methods
 {
     public class KörMethods
     {
-        public static void KörMetod(Code code, CodeRow codeRow)
+        public static void KörMetod(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             var motod = code.Methods.Find(v => v.MenthodName == codeRow.RowVariableName);
 
