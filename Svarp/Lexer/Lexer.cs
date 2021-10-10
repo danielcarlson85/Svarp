@@ -36,7 +36,7 @@ namespace Svarp
                 {
                     isMetod = true;
                     method = new();
-                    method.MenthodName = item;
+                    method.MenthodName = item.Split(":")[1];
                 }
 
                 if (item.StartsWith("MetodStop"))
@@ -69,7 +69,7 @@ namespace Svarp
             CodeRow codeRow = new();
 
             var functionName = Parser.GetFunctionName(delegateCode, "(", ")");
-            codeRow.FunctionName = string.IsNullOrEmpty(functionName) ? "Variabel" : functionName;
+            codeRow.MethodName = string.IsNullOrEmpty(functionName) ? "Variabel" : functionName;
 
             var deledgateCode = Parser.GetDelegateFromRow(delegateCode, "@", "@");
             codeRow.Delegate = GetMethodValues(deledgateCode);

@@ -8,8 +8,12 @@ namespace SWarp
     {
         public static void Run(Code code, CodeRow codeRow)
         {
-            switch (codeRow.FunctionName)
+            switch (codeRow.MethodName)
             {
+                case "KörMetod":
+                    KörMethods.KörMetod(code, codeRow);
+                    break;
+
                 case "SåLänge":
                     SåLängeMethods.SåLänge(code, codeRow);
                     break;

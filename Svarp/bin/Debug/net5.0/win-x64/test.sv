@@ -1,10 +1,12 @@
-﻿(SåLänge){1<200000}@(SkrivUtVariabel){nummers}@
+﻿(KörMetod){Sluta}
+
+
+
+
 
 MetodStart:Räkna
-	teste{namn}(LäsInklTitel)"Vad heter du? "
-	test{ålder}(LäsInklTitel)"Hur gammal är du?"
-	teset{nummers}"5+5"
-	(SåLänge){1<200000}@(SkrivUtVariabel){nummers}@
+	{namn}(LäsInklTitel)"Vad heter du? "
+	(SkrivUt)"Hej"
 MetodStop
 
 
@@ -12,9 +14,14 @@ MetodStart:Sluta
 	{namn}(LäsInklTitel)"Vad heter du? "
 	{ålder}(LäsInklTitel)"Hur gammal är du?"
 	{nummers}"5+5"
+	(RäknaUtVariabel){nummers}
+	(SkrivUtVariabel){nummers}
 MetodStop
 
-{nummers}"5+5"
+
+--(SåLänge){1<200000}@(SkrivUtVariabel){nummers}@
+
+--{nummers}"5+5"
 --(RäknaUtVariabel){nummers}
 --(SkrivUtVariabel){nummers}
 
@@ -45,7 +52,7 @@ MetodStop
 --(SkrivUtVariabel){nummers}
 --(SkrivUt)"hej"
 --(RäknaUt)"4+4"
---(RäknaUtVariable){nummers}
+--(RäknaUtVariabel){nummers}
 --(SkrivUtVariabel){nummers}
 --{variabel1}(LäsInklTitel)"hej"
 --{variabel6}"Daniel"
