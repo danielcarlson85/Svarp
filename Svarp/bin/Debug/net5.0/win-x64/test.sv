@@ -1,29 +1,33 @@
 ﻿{nummers}"5"
 
-(Om)<nummers==5>@(KörMetod){Räkna}@
+--(Om)<nummers==5>@(KörMetod){Räkna}@
 
 
 
---(KörMetod){Räkna}
+(KörMetod){Räkna}
 
 
 
 MetodStart:Räkna
-	{nummers}"5+5"
-	(SkrivUtVariabel){nummers}
+
+	{nummers}"10*2343"
 	(RäknaUtVariabel){nummers}
 	(SkrivUtVariabel){nummers}
-	(SåLänge){1<100}@(SkrivUtVariabel){nummers}@
+	
+	(SåLänge){0<5}@(KörMetod){Räkna}@
+
+
+
 MetodStop
 
 
---MetodStart:Sluta
---	{namn}(LäsInklTitel)"Vad heter du? "
---	{ålder}(LäsInklTitel)"Hur gammal är du?"
---	{nummers}"5+5"
---	(RäknaUtVariabel){nummers}
---	(SkrivUtVariabel){nummers}
---MetodStop
+MetodStart:Sluta
+	{namn}(LäsInklTitel)"Vad heter du? "
+	{ålder}(LäsInklTitel)"Hur gammal är du?"
+	{nummers}"5+5"
+	(RäknaUtVariabel){nummers}
+	(SkrivUtVariabel){nummers}
+MetodStop
 
 
 --(SåLänge){1<200000}@(SkrivUtVariabel){nummers}@
