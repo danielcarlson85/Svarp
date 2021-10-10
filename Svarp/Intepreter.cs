@@ -6,46 +6,50 @@ namespace SWarp
 {
     class Intepreter
     {
-        public static void Run(ProgramCode code, ProgramCodeOnRow codeRow)
+        public static void Run(ProgramCode programCode, ProgramCodeOnRow programCodeOnRow)
         {
-            switch (codeRow.MethodName)
+            switch (programCodeOnRow.MethodName)
             {
+                case "Om":
+                    OmMethods.Om(programCode, programCodeOnRow);
+                    break;
+
                 case "KörMetod":
-                    KörMethods.KörMetod(code, codeRow);
+                    KörMethods.KörMetod(programCode, programCodeOnRow);
                     break;
 
                 case "SåLänge":
-                    SåLängeMethods.SåLänge(code, codeRow);
+                    SåLängeMethods.SåLänge(programCode, programCodeOnRow);
                     break;
 
                 case "SkrivUt":
-                    SkrivMethods.SkrivUt(code, codeRow);
+                    SkrivMethods.SkrivUt(programCode, programCodeOnRow);
                     break;
                 case "SkrivUtVariabel":
-                    SkrivMethods.SkrivUtVariabel(code, codeRow);
+                    SkrivMethods.SkrivUtVariabel(programCode, programCodeOnRow);
                     break;
 
                 case "SkrivUtVariabelOchText":
-                    SkrivMethods.SkrivUtVariabelOchText(code, codeRow);
+                    SkrivMethods.SkrivUtVariabelOchText(programCode, programCodeOnRow);
                     break;
 
                 case "Variabel":
-                    VariableMethods.Variabel(code, codeRow);
+                    VariableMethods.Variabel(programCode, programCodeOnRow);
                     break;
 
                 case "LäsIn":
-                    LäsMethods.LäsIn(code, codeRow);
+                    LäsMethods.LäsIn(programCode, programCodeOnRow);
                     break;
                 case "LäsInklTitel":
-                    LäsMethods.LäsInklTitel(code, codeRow);
+                    LäsMethods.LäsInklTitel(programCode, programCodeOnRow);
                     break;
 
                 case "RäknaUtVariabel":
-                    RäknaUtMethods.RäknaUtVariabel(code, codeRow);
+                    RäknaUtMethods.RäknaUtVariabel(programCode, programCodeOnRow);
                     break;
 
                 case "RäknaUt":
-                    RäknaUtMethods.RäknaUt(code, codeRow);
+                    RäknaUtMethods.RäknaUt(programCode, programCodeOnRow);
                     break;
             }
         }

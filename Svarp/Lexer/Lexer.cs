@@ -16,7 +16,6 @@ namespace Svarp
                 if (row.StartsWith("Metod")) continue;
                 if (row.StartsWith('\t')) continue;
 
-
                 var codeRow = GetMethodValues(row);
                 code.CodeRows.Add(codeRow);
             }
@@ -59,24 +58,38 @@ namespace Svarp
         }
 
 
-        private static ProgramCodeOnRow GetMethodValues(string delegateCode)
+        private static ProgramCodeOnRow GetMethodValues(string code)
         {
-            if (delegateCode == string.Empty)
+            if (code == string.Empty)
             {
                 return new();
             }
 
             ProgramCodeOnRow codeRow = new();
 
-            var functionName = Parser.GetFunctionName(delegateCode, "(", ")");
+            var functionName = Parser.GetFunctionName(code, "(", ")");
             codeRow.MethodName = string.IsNullOrEmpty(functionName) ? "Variabel" : functionName;
 
-            var deledgateCode = Parser.GetDelegateFromRow(delegateCode, "@", "@");
-            codeRow.Delegate = GetMethodValues(deledgateCode);
+            codeRow.OmValue = Parser.GetOmValueFromRow(code, "<", ">");
+            
+            var stringd = Parser.GetOmInputFromRow(code, "<", ">");
+            codeRow.OmOperator = Parser.GetOmOperator(stringd);
 
-            codeRow.RowVariableName = Parser.GetInputVariableName(delegateCode, "{", "}");
-            codeRow.RowText = Parser.GetFunctionInputText(delegateCode, "\"", "\"");
-            codeRow.Operator = Parser.GetFunctionOperator(delegateCode);
+
+
+            var deledgateCode = Parser.GetDelegateFromRow(code, "@", "@");
+            if (deledgateCode != string.Empty)
+            {
+                codeRow.Delegate = GetMethodValues(deledgateCode);
+            }
+            else
+            {
+                codeRow.Delegate = new();
+            }
+
+            codeRow.RowVariableName = Parser.GetInputVariableName(code, "{", "}");
+            codeRow.RowText = Parser.GetFunctionInputText(code, "\"", "\"");
+            codeRow.Operator = Parser.GetFunctionOperator(code);
 
             return codeRow;
         }

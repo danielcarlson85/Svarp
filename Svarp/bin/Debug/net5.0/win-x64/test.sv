@@ -1,10 +1,18 @@
-﻿(KörMetod){Räkna}
+﻿{nummers}"5"
+
+(Om)<nummers==5>@(KörMetod){Räkna}@
+
+
+
+--(KörMetod){Räkna}
 
 
 
 MetodStart:Räkna
 	{nummers}"5+5"
+	(SkrivUtVariabel){nummers}
 	(RäknaUtVariabel){nummers}
+	(SkrivUtVariabel){nummers}
 	(SåLänge){1<100}@(SkrivUtVariabel){nummers}@
 MetodStop
 

@@ -12,23 +12,6 @@ namespace SWarp.Methods
             {
                 Intepreter.Run(code, item);
             }
-
-            //var inData = Console.ReadLine();
-
-            //if (rowVariable != null)
-            //{
-            //    rowVariable.VariableValue = codeRow.RowVariableValue;
-            //}
-            //else
-            //{
-            //    rowVariable = new StringVariable
-            //    {
-            //        VariableValue = inData,
-            //        VariableName = codeRow.RowVariableName
-            //    };
-            //}
-
-            //CheckIfVariableExistAndUpdate(code, rowVariable);
         }
     }
 }
