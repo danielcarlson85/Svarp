@@ -1,8 +1,12 @@
 ﻿--(RäknaUtVariabel){nummer1}
 
-
 {var}"hj"
-(SkrivUtVariabel){var}
+{daniel}"hoho"
+{daniel1}"hotyuy7ho"
+{daniel2}"sdfsdf"
+
+
+(SkrivUtVariabelOchText){var}"hej"{daniel1}{daniel2}{daniel}"
 
 
 

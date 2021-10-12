@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Svarp.Methods
 {
@@ -11,23 +13,31 @@ namespace Svarp.Methods
 
         internal static void SkrivUtVariabel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var variables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
+            var savedVariables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
 
-            var variable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName);
+            var foundVariables = (savedVariables.Select(item => code.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
 
-            if (variable != null)
+            if (foundVariables != null)
             {
-                Console.WriteLine(variable.VariableValue);
+                foreach (var variable in foundVariables)
+                {
+                    Console.Write(variable.VariableValue);
+                }
             }
         }
 
         internal static void SkrivUtVariabelOchText(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var variable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName);
+            var savedVariables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
 
-            if (variable is not null)
+            var foundVariables = (savedVariables.Select(item => code.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
+
+            if (foundVariables != null)
             {
-                Console.WriteLine(codeRow.RowText + variable.VariableValue);
+                foreach (var variable in foundVariables)
+                {
+                    Console.WriteLine(codeRow.RowText + variable.VariableValue);
+                }
             }
         }
     }

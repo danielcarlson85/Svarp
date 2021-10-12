@@ -37,9 +37,9 @@ namespace Svarp
         {
             int nummer = 0;
 
-            while (nummer < 100000)
+            while (nummer < 2000000)
             {
-                //Console.WriteLine(nummer + "Hello world");
+                Console.WriteLine(nummer + "Hello world");
                 nummer++;
             }
         }
