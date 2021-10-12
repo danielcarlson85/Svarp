@@ -1,22 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Svarp
 {
     static class Parser
     {
-        public static string GetInputVariableName(string strSource, string strStart, string strEnd)
+        public static List<Variables> GetInputVariablesName(string strSource, string strStart, string strEnd)
         {
-            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            var variables = new List<Variables>();
+
+            MatchCollection mcol = Regex.Matches(strSource, @"{\b\S+?\b}");
+            foreach (Match m in mcol)
             {
-                int Start, End;
-                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
-                End = strSource.IndexOf(strEnd, Start);
-                return strSource.Substring(Start, End - Start);
+                var variable = m.ToString();
+                variable = variable.Replace("{", string.Empty);
+                variable = variable.Replace("}", string.Empty);
+
+                variables.Add(new Variables()
+                {
+                    VariableName = variable,
+                    VariableType = int.TryParse(variable, out _) ? VariableType.Int : VariableType.String
+                });
             }
 
-            return "";
+            return variables;
         }
 
         internal static string GetLoopOperator(string row)
@@ -27,7 +36,8 @@ namespace Svarp
                 ">",
                 "==",
                 "<=",
-                ">="
+                ">=",
+                "!="
             };
 
             foreach (var item in op.Where(item => row.Contains(item)))
@@ -43,6 +53,7 @@ namespace Svarp
                 "<",
                 ">",
                 "==",
+                "!=",
                 "<=",
                 ">="
             };

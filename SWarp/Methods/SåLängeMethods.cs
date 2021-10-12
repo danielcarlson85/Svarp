@@ -12,11 +12,11 @@ namespace SWarp.Methods
     {
         public static void SåLänge(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var op = Parser.GetLoopOperator(codeRow.RowVariableName);
+            var op = Parser.GetLoopOperator(codeRow.RowVariables[0].VariableName);
             codeRow.Operator = op;
 
-            int number1 = int.Parse(codeRow.RowVariableName.Split(op)[0]);
-            int number2 = int.Parse(codeRow.RowVariableName.Split(op)[1]);
+            int number1 = int.Parse(codeRow.RowVariables[0].VariableName.Split(op)[0]);
+            int number2 = int.Parse(codeRow.RowVariables[0].VariableName.Split(op)[1]);
 
 
             switch (codeRow.Operator)

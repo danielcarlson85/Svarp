@@ -4,7 +4,8 @@ namespace Svarp
 {
     public class ProgramCodeOnRow
     {
-        public string RowVariableName { get; set; } = string.Empty;
+        public string FullCodeOnRow { get; set; } = string.Empty;
+        public List<Variables> RowVariables { get; set; } = new();
         public string RowText { get; set; } = string.Empty;
         public string MethodName { get; set; } = string.Empty;
         public string RowVariableValue { get; internal set; } = string.Empty;

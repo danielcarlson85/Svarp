@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="bin\Release\**" />
+    <EmbeddedResource Remove="bin\Release\**" />
+    <None Remove="bin\Release\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="SwarpKod\Grammar.txt" />
   </ItemGroup>
 
@@ -16,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="bin\Debug\net5.0\win-x64\Calc.sw" />
     <None Include="bin\Debug\net5.0\win-x64\test.sv" />
-    <None Include="bin\Release\net5.0\publish\test.sv" />
   </ItemGroup>
 
 </Project>

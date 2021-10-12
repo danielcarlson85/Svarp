@@ -49,7 +49,7 @@ namespace SWarp.Methods
             string number1 = string.Empty;
             string number2 = string.Empty;
 
-            var variable = code.StringVariables.SingleOrDefault(v => v.VariableName == codeRow.RowVariableName);
+            var variable = code.StringVariables.SingleOrDefault(v => v.VariableName == codeRow.RowVariables[0].VariableName);
 
             if (variable != null)
             {
@@ -80,7 +80,7 @@ namespace SWarp.Methods
                     break;
             }
 
-            code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName).VariableValue = result.ToString();
+            code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName).VariableValue = result.ToString();
         }
     }
 }

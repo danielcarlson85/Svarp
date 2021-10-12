@@ -36,7 +36,7 @@ MetodStop					Slut av metoden
 		{variabelName}"nummer1+nummer2"
 		(RäknaUtVariabel){variabelNamn}
 
-		(SkrivUtVariabel){nummers}
+		(SkrivUtVariabel){variabelName}
 
 
 		

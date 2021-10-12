@@ -6,7 +6,9 @@ namespace Svarp.Methods
     {
         public static void LäsIn(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var rowVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
+
+
+            var rowVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName);
 
             var inData = Console.ReadLine();
 
@@ -19,7 +21,7 @@ namespace Svarp.Methods
                 rowVariable = new Variables
                 {
                     VariableValue = inData,
-                    VariableName = codeRow.RowVariableName
+                    VariableName = codeRow.RowVariables[0].VariableName
                 };
             }
 
@@ -29,7 +31,7 @@ namespace Svarp.Methods
         internal static void LäsInklTitel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             Console.Write(codeRow.RowText);
-            var rowVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
+            var rowVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName);
 
             var inData = Console.ReadLine();
 
@@ -42,7 +44,7 @@ namespace Svarp.Methods
                 rowVariable = new Variables
                 {
                     VariableValue = inData,
-                    VariableName = codeRow.RowVariableName
+                    VariableName = codeRow.RowVariables[0].VariableName
                 };
             }
 

@@ -25,6 +25,7 @@ namespace SWarp
                 case "SkrivUt":
                     SkrivMethods.SkrivUt(programCode, programCodeOnRow);
                     break;
+
                 case "SkrivUtVariabel":
                     SkrivMethods.SkrivUtVariabel(programCode, programCodeOnRow);
                     break;
@@ -40,6 +41,7 @@ namespace SWarp
                 case "LäsIn":
                     LäsMethods.LäsIn(programCode, programCodeOnRow);
                     break;
+
                 case "LäsInklTitel":
                     LäsMethods.LäsInklTitel(programCode, programCodeOnRow);
                     break;

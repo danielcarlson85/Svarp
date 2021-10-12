@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Svarp.Methods
 {
@@ -15,7 +11,9 @@ namespace Svarp.Methods
 
         internal static void SkrivUtVariabel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var variable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
+            var variables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
+
+            var variable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName);
 
             if (variable != null)
             {
@@ -25,7 +23,7 @@ namespace Svarp.Methods
 
         internal static void SkrivUtVariabelOchText(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var variable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariableName);
+            var variable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName);
 
             if (variable is not null)
             {

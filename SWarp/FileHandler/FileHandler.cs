@@ -17,7 +17,7 @@ namespace SWarp.FileHandler
             }
             else
             {
-                var SWarpFile = "test.sv";
+                var SWarpFile = "Calc.sw";
                 return (await File.ReadAllLinesAsync(SWarpFile)).ToList();
             }
         }

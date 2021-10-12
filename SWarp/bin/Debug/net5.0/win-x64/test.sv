@@ -1,24 +1,25 @@
-﻿{nummers}"5"
+﻿{nummers}"6"
 
---(Om)<nummers==5>@(KörMetod){Räkna}@
+(Om)<nummers!=5>@(KörMetod){Sluta}@
+
 
 
 
 (KörMetod){Räkna}
 
-
-
 (MetodStart):Räkna
-
+	(SkrivUt)"Inne i Räkna metoden"
 	{nummers}"10*2343"
 	(RäknaUtVariabel){nummers}
 	(SkrivUtVariabel){nummers}
 	
 	(SåLänge){0<5}@(KörMetod){Sluta}@
+
 (MetodStop)
 
 
 (MetodStart):Sluta
+	(SkrivUt)"Inne i sluta metoden"
 	{namn}(LäsInklTitel)"Vad heter du? "
 	{ålder}(LäsInklTitel)"Hur gammal är du?"
 	{nummers}"5+5"

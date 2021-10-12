@@ -26,6 +26,13 @@ namespace SWarp.Methods
                     }
                     break;
 
+                case "!=":
+                    if (variable1Value.VariableValue != variable2Value.VariableValue)
+                    {
+                        Intepreter.Run(code, codeRow.Delegate);
+                    }
+                    break;
+
                 default:
                     break;
             }

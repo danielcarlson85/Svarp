@@ -74,9 +74,7 @@ namespace Svarp
             
             var stringd = Parser.GetOmInputFromRow(code, "<", ">");
             codeRow.OmOperator = Parser.GetOmOperator(stringd);
-
-
-
+            codeRow.FullCodeOnRow = code;
             var deledgateCode = Parser.GetDelegateFromRow(code, "@", "@");
             if (deledgateCode != string.Empty)
             {
@@ -87,7 +85,7 @@ namespace Svarp
                 codeRow.Delegate = new();
             }
 
-            codeRow.RowVariableName = Parser.GetInputVariableName(code, "{", "}");
+            codeRow.RowVariables = Parser.GetInputVariablesName(code, "{", "}");
             codeRow.RowText = Parser.GetFunctionInputText(code, "\"", "\"");
             codeRow.Operator = Parser.GetFunctionOperator(code);
 
