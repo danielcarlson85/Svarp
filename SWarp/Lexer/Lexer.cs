@@ -86,7 +86,7 @@ namespace Svarp
             }
 
             codeRow.RowVariables = Parser.GetInputVariablesName(code, "{", "}");
-            codeRow.RowText = Parser.GetFunctionInputText(code, "\"", "\"");
+            codeRow.RowText = Parser.GetFunctionInputText(code, "\'", "\'");
             codeRow.Operator = Parser.GetFunctionOperator(code);
 
             return codeRow;

@@ -1,49 +1,49 @@
-﻿using SWarp;
+﻿
+
+using Svarp;
+using SWarp;
 using SWarp.FileHandler;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
-namespace Svarp
+class Program
 {
-    class Program
+    static async Task Main(string[] args)
     {
-        static ProgramCode ProgramCode = new();
 
-        static async Task Main(string[] args)
+
+        Stopwatch stopwatch = new();
+        stopwatch.Start();
+        await Run(args);
+        //Loop();
+        stopwatch.Stop();
+        Console.WriteLine(stopwatch.Elapsed);
+        Console.Read();
+    }
+
+    static async Task Run(string[] args)
+    {
+        ProgramCode programCode = new ProgramCode();
+
+        if (args.Contains("--compile"))
         {
-            Stopwatch stopwatch = new();
-            stopwatch.Start();
-            await Run(args);
-            //Loop();
-            stopwatch.Stop();
-            Console.WriteLine(stopwatch.Elapsed);
-            Console.Read();
+            Compiler.Compile(args[1]);
+            Console.WriteLine("Program is compiled");
         }
-
-        static async Task Run(string[] args)
+        else
         {
             var file = await FileHandler.LoadFromFile(args);
-            ProgramCode = Lexer.LexCode(ProgramCode, file);
-
-            foreach (var codeRow in ProgramCode.CodeRows)
-            {
-                Intepreter.Run(ProgramCode, codeRow);
-            }
+            programCode = Lexer.LexCode(programCode, file.ToList());
         }
 
-
-        static void Loop()
+        foreach (var codeRow in programCode.CodeRows)
         {
-            int nummer = 0;
-
-            while (nummer < 2000000)
-            {
-                Console.WriteLine(nummer + "Hello world");
-                nummer++;
-            }
+            Intepreter.Run(programCode, codeRow);
         }
-
-
     }
 }
+

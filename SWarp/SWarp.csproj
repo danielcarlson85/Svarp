@@ -23,7 +23,13 @@
 
   <ItemGroup>
     <None Include="bin\Debug\net5.0\win-x64\Calc.sw" />
-    <None Include="bin\Debug\net5.0\win-x64\test.sv" />
+    <None Include="bin\Debug\net5.0\win-x64\test.sw" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Code.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
 </Project>
