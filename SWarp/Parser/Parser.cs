@@ -12,6 +12,8 @@ namespace Svarp
             var variables = new List<Variables>();
 
             MatchCollection mcol = Regex.Matches(strSource, @"{\b\S+?\b}");
+
+            int order = 0;
             foreach (Match m in mcol)
             {
                 var variable = m.ToString();
@@ -21,8 +23,12 @@ namespace Svarp
                 variables.Add(new Variables()
                 {
                     VariableName = variable,
-                    VariableType = int.TryParse(variable, out _) ? VariableType.Int : VariableType.String
+                    VariableType = int.TryParse(variable, out _) ? VariableType.Int : VariableType.String,
+                    Order = order
+
                 });
+
+                order++;
             }
 
             return variables;
