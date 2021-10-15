@@ -63,6 +63,11 @@ partial class Program
                 programCode = Lexer.LexCode(programCode, file.ToList());
                 RunCode();
             }
+            else
+            {
+                programCode = Lexer.LexCode(programCode, Code.code.ToList());
+                RunCode();
+            }
         }
     }
 
