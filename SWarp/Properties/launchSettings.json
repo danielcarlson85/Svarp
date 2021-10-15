@@ -1,8 +1,7 @@
 {
   "profiles": {
     "SWarp": {
-      "commandName": "Project",
-      "commandLineArgs": "--compile test.sw"
+      "commandName": "Project"
     }
   }
 }

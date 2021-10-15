@@ -23,12 +23,11 @@ partial class Program
         Console.Read();
     }
 
-    static ProgramCode programCode = new ProgramCode();
+    static ProgramCode programCode = new();
 
 
     static async Task Run(string[] args)
     {
-
         Console.WriteLine("innan main");
 
         if (args.Length != 0)
@@ -71,19 +70,16 @@ partial class Program
 
     static void RunCode()
     {
-        Console.WriteLine("Efter switch");
-
         var exceptions = new List<ExceptionList>();
-
         var activecoderow = string.Empty;
         var codeRowNumber = 0;
-
 
         try
         {
 
             foreach (var codeRow in programCode.CodeRows)
             {
+                //Change here to debug SWarp
                 if (codeRow.CodeRowNumber == 48)
                 {
                     Console.WriteLine("nu");

@@ -1,4 +1,12 @@
-﻿SWarp syntax
+﻿Commandon:
+
+SWarp --compile {SWarpfile.sw}    --compiles to SWarp.exe with the chosen file
+SWarp -f {SWarpfile.sw}			  -- Runs the chosen file
+SWarp.exe						  -- Runs the compiled executable
+
+
+
+SWarp syntax
 ***********************************************************************************************************
 
 
