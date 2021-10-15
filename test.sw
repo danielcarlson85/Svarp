@@ -13,7 +13,7 @@
 
 
 (MetodStart):Sluta
-	(SkrivUt)'Inne i sluta metoden'
+	(SkrivUt)'Inne i sluta sdfasdfdsmetoden'
 	{namn}(LäsInklTitel)'Vad heter du? '
 	{ålder}(LäsInklTitel)'Hur gammal är du?'
 	{nummers}'5+5'

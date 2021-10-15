@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 partial class Program
 {
+    static readonly string SWFileName = "calc.sw";
+    static readonly string rootPath = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.Parent.FullName) + "\\";
+
     static async Task Main(string[] args)
     {
         Stopwatch stopwatch = new();
@@ -23,7 +26,6 @@ partial class Program
     }
 
     static ProgramCode programCode = new();
-
 
     static async Task Run(string[] args)
     {
@@ -55,7 +57,7 @@ partial class Program
         {
             if (Debugger.IsAttached)
             {
-                var fileName = "test.sw";
+                var fileName = $"{rootPath}{SWFileName}";
                 var file = await FileHandler.LoadFromFile(fileName);
 
                 programCode = Lexer.LexCode(programCode, file.ToList());
