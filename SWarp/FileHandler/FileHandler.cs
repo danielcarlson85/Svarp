@@ -7,22 +7,7 @@ namespace SWarp.FileHandler
     {
         public static async Task<string[]> LoadFromFile(string[] args)
         {
-            if (args.Length > 0)
-            {
-                return (await File.ReadAllLinesAsync(args[0]));
-            }
-            else
-            {
-                string[] code = new string[]
-                {
-                        "(SkrivUt)'hej'",
-                        "(SkrivUt)'hej'",
-                        "(SkrivUt)'Från kod array'"
-                };
-
-                return code;
-
-            }
+            return (await File.ReadAllLinesAsync(args[1]));
         }
     }
 }

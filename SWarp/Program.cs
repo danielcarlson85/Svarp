@@ -10,15 +10,10 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-class Program
+partial class Program
 {
     static async Task Main(string[] args)
     {
-        //foreach (var code in Code.code)
-        //{
-        //    Console.WriteLine(code);
-        //}
-
         Stopwatch stopwatch = new();
         stopwatch.Start();
         await Run(args);
@@ -28,38 +23,61 @@ class Program
         Console.Read();
     }
 
+    static ProgramCode programCode = new ProgramCode();
+
+
     static async Task Run(string[] args)
     {
-        ProgramCode programCode = new ProgramCode();
 
-#if DEBUG
-
-
-        var file = await FileHandler.LoadFromFile(args);
-        programCode = Lexer.LexCode(programCode, file.ToList());
-
-#else
+        Console.WriteLine("innan main");
 
         if (args.Length != 0)
         {
+
+            switch (args[0])
             {
-                if (args.Contains("--compile"))
-                {
-                    Compiler.Compile(args[1], args[2]);
+                case "-f":
+                    var file = await FileHandler.LoadFromFile(args);
+                    programCode = Lexer.LexCode(programCode, file.ToList());
+                    RunCode();
+
+                    break;
+
+                case "--compile":
+                    Compiler.Compile(args[1]);
                     Console.WriteLine("Program is compiled");
-                }
+                    break;
+
+                default:
+                    var code = new string[]
+                    {
+                        "(SkrivUt)'hej'",
+                        "(SkrivUt)'hej'",
+                        "(SkrivUt)'Från kod array'"
+                    };
+                    programCode = Lexer.LexCode(programCode, code.ToList());
+                    RunCode();
+                    break;
             }
         }
-
-        if (args.Length == 0)
+        else
         {
             programCode = Lexer.LexCode(programCode, Code.code.ToList());
+            RunCode();
         }
-#endif
-        var exceptions = new List<exceptionList>();
+
+       
+    }
+
+    static void RunCode()
+    {
+        Console.WriteLine("Efter switch");
+
+        var exceptions = new List<ExceptionList>();
 
         var activecoderow = string.Empty;
         var codeRowNumber = 0;
+
 
         try
         {
@@ -79,7 +97,7 @@ class Program
         }
         catch (Exception e)
         {
-            exceptions.Add(new exceptionList() { exception = e, MethodName = activecoderow, CodeRowNumber = codeRowNumber });
+            exceptions.Add(new ExceptionList() { exception = e, MethodName = activecoderow, CodeRowNumber = codeRowNumber });
 
             foreach (var item in exceptions)
             {
@@ -88,12 +106,5 @@ class Program
 
             throw;
         }
-    }
-
-    class exceptionList
-    {
-        public Exception exception { get; set; }
-        public string MethodName { get; set; }
-        public int CodeRowNumber { get; set; }
     }
 }
