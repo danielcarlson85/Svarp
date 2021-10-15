@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="clrcompression.dll" />
+    <None Remove="clrjit.dll" />
+    <None Remove="coreclr.dll" />
+    <None Remove="mscordaccore.dll" />
+    <None Remove="SWarp.exe" />
     <None Remove="SWarp.pdb" />
     <None Remove="SwarpKod\Grammar.txt" />
   </ItemGroup>
