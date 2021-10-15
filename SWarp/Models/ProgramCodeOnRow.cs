@@ -16,5 +16,7 @@ namespace Svarp
         
         public string OmOperator { get; set; } = string.Empty;
         public ProgramCodeOnRow Delegate { get; set; }
+
+        public int CodeRowNumber { get; set; } = 0;
     }
 }

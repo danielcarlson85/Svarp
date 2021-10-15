@@ -19,6 +19,12 @@ namespace SWarp.Methods
             int number2 = int.Parse(codeRow.RowVariables[0].VariableName.Split(op)[1]);
 
 
+            var savedVariables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
+
+            var foundVariables = (savedVariables.Select(item => code.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
+
+
+
             switch (codeRow.Operator)
             {
                 case "<":

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Threading.Tasks;
 
 namespace SWarp.FileHandler
@@ -13,12 +9,19 @@ namespace SWarp.FileHandler
         {
             if (args.Length > 0)
             {
-                return (await File.ReadAllLinesAsync(args[1]));
+                return (await File.ReadAllLinesAsync(args[0]));
             }
             else
             {
-                var SWarpFile = "test.sw";
-                return (await File.ReadAllLinesAsync(SWarpFile));
+                string[] code = new string[]
+                {
+                        "(SkrivUt)'hej'",
+                        "(SkrivUt)'hej'",
+                        "(SkrivUt)'Från kod array'"
+                };
+
+                return code;
+
             }
         }
     }

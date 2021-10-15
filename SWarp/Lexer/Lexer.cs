@@ -5,18 +5,23 @@ namespace Svarp
 {
     class Lexer
     {
+        static int codeRowNumber = 0;
+
         public static ProgramCode LexCode(ProgramCode code, List<string> file)
         {
             code = GetMethods(code, file);
 
             foreach (var row in file)
             {
+                codeRowNumber++;
                 if (string.IsNullOrEmpty(row)) continue;
                 if (row.StartsWith("--")) continue;
                 if (row.StartsWith("Metod")) continue;
                 if (row.StartsWith('\t')) continue;
 
                 var codeRow = GetMethodValues(row);
+                codeRow.CodeRowNumber = codeRowNumber;
+
                 code.CodeRows.Add(codeRow);
             }
 

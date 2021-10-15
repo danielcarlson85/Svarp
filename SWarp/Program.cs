@@ -14,10 +14,11 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        foreach (var code in Code.code)
-        {
-            Console.WriteLine(code);
-        }
+        //foreach (var code in Code.code)
+        //{
+        //    Console.WriteLine(code);
+        //}
+
         Stopwatch stopwatch = new();
         stopwatch.Start();
         await Run(args);
@@ -32,11 +33,7 @@ class Program
         ProgramCode programCode = new ProgramCode();
 
 #if DEBUG
-        string[] code = new string[]
-        {
-        "(SkrivUt)'hej'",
-        "(SkrivUt)'hej'",
-        };
+
 
         var file = await FileHandler.LoadFromFile(args);
         programCode = Lexer.LexCode(programCode, file.ToList());
@@ -59,10 +56,44 @@ class Program
             programCode = Lexer.LexCode(programCode, Code.code.ToList());
         }
 #endif
+        var exceptions = new List<exceptionList>();
 
-        foreach (var codeRow in programCode.CodeRows)
+        var activecoderow = string.Empty;
+        var codeRowNumber = 0;
+
+        try
         {
-            Intepreter.Run(programCode, codeRow);
+
+            foreach (var codeRow in programCode.CodeRows)
+            {
+                if (codeRow.CodeRowNumber == 48)
+                {
+                    Console.WriteLine("nu");
+                }
+
+                codeRowNumber = codeRow.CodeRowNumber;
+                activecoderow = codeRow.FullCodeOnRow;
+                Intepreter.Run(programCode, codeRow);
+            }
+
         }
+        catch (Exception e)
+        {
+            exceptions.Add(new exceptionList() { exception = e, MethodName = activecoderow, CodeRowNumber = codeRowNumber });
+
+            foreach (var item in exceptions)
+            {
+                Console.WriteLine("\n\nException: Method name: " + item.MethodName + " \n" + "On row" + item.CodeRowNumber + "\n\n" + item.exception);
+            }
+
+            throw;
+        }
+    }
+
+    class exceptionList
+    {
+        public Exception exception { get; set; }
+        public string MethodName { get; set; }
+        public int CodeRowNumber { get; set; }
     }
 }
