@@ -5,6 +5,7 @@
     <TargetFramework>net5.0</TargetFramework>
 	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 	<PublishReadyToRun>true</PublishReadyToRun>
+	<PublishTrimmed>true</PublishTrimmed>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +25,7 @@
   <ItemGroup>
     <None Include="bin\Debug\net5.0\win-x64\Calc.sw" />
     <None Include="bin\Debug\net5.0\win-x64\test.sw" />
+    <None Include="bin\Release\net5.0\win-x64\test.sw" />
   </ItemGroup>
 
   <ItemGroup>

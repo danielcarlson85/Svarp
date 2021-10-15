@@ -14,8 +14,10 @@ class Program
 {
     static async Task Main(string[] args)
     {
-
-
+        foreach (var code in Code.code)
+        {
+            Console.WriteLine(code);
+        }
         Stopwatch stopwatch = new();
         stopwatch.Start();
         await Run(args);
@@ -29,16 +31,34 @@ class Program
     {
         ProgramCode programCode = new ProgramCode();
 
-        if (args.Contains("--compile"))
+#if DEBUG
+        string[] code = new string[]
         {
-            Compiler.Compile(args[1]);
-            Console.WriteLine("Program is compiled");
-        }
-        else
+        "(SkrivUt)'hej'",
+        "(SkrivUt)'hej'",
+        };
+
+        var file = await FileHandler.LoadFromFile(args);
+        programCode = Lexer.LexCode(programCode, file.ToList());
+
+#else
+
+        if (args.Length != 0)
         {
-            var file = await FileHandler.LoadFromFile(args);
-            programCode = Lexer.LexCode(programCode, file.ToList());
+            {
+                if (args.Contains("--compile"))
+                {
+                    Compiler.Compile(args[1], args[2]);
+                    Console.WriteLine("Program is compiled");
+                }
+            }
         }
+
+        if (args.Length == 0)
+        {
+            programCode = Lexer.LexCode(programCode, Code.code.ToList());
+        }
+#endif
 
         foreach (var codeRow in programCode.CodeRows)
         {
@@ -46,4 +66,3 @@ class Program
         }
     }
 }
-

@@ -1,5 +1,7 @@
 ﻿(SkrivUt)'hej'
+(SkrivUt)'hej'
 
+(SkrivUt)"Daniel"
 
 --(SkrivUtVariabelOchText){var}"hej"{daniel1}{daniel2}{daniel}"
 

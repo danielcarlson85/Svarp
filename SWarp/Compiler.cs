@@ -9,7 +9,7 @@ namespace SWarp
 {
     class Compiler
     {
-        public static void Compile(string fileToCompile)
+        public static void Compile(string fileToCompile, string outputPath)
         {
             var cod = new List<string>{
                 "public static class Code",
@@ -40,19 +40,21 @@ namespace SWarp
             File.WriteAllLines(startupPath + "/Code.cs", cod);
 
             Thread.Sleep(2000);
-           // CompileDotNet();
+            CompileDotNet(outputPath);
         }
 
-        public static void CompileDotNet()
+        public static void CompileDotNet(string outputPath)
         {
             string startupPath = "\"" + Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName) + "\"";
+
+            string arg = "publish -r win-x64 -p:PublishSingleFile=true --self-contained true -o ." + outputPath;
 
             Console.WriteLine(startupPath);
 
 
             Process ptStitcher = new Process();
             ptStitcher.StartInfo.FileName = "dotnet";
-            ptStitcher.StartInfo.Arguments = "publish -r win-x64 -p:PublishSingleFile=true --self-contained true " + startupPath;
+            ptStitcher.StartInfo.Arguments = arg;
             ptStitcher.Start();
             Environment.Exit(0);
         }
