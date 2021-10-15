@@ -17,7 +17,6 @@ partial class Program
         Stopwatch stopwatch = new();
         stopwatch.Start();
         await Run(args);
-        //Loop();
         stopwatch.Stop();
         Console.WriteLine(stopwatch.Elapsed);
         Console.Read();
@@ -36,7 +35,8 @@ partial class Program
             switch (args[0])
             {
                 case "-f":
-                    var file = await FileHandler.LoadFromFile(args);
+                    var fileName = args[1];
+                    var file = await FileHandler.LoadFromFile(fileName);
                     programCode = Lexer.LexCode(programCode, file.ToList());
                     RunCode();
 
@@ -48,24 +48,20 @@ partial class Program
                     break;
 
                 default:
-                    var code = new string[]
-                    {
-                        "(SkrivUt)'hej'",
-                        "(SkrivUt)'hej'",
-                        "(SkrivUt)'Från kod array'"
-                    };
-                    programCode = Lexer.LexCode(programCode, code.ToList());
-                    RunCode();
                     break;
             }
         }
         else
         {
-            programCode = Lexer.LexCode(programCode, Code.code.ToList());
-            RunCode();
-        }
+            if (Debugger.IsAttached)
+            {
+                var fileName = "test.sw";
+                var file = await FileHandler.LoadFromFile(fileName);
 
-       
+                programCode = Lexer.LexCode(programCode, file.ToList());
+                RunCode();
+            }
+        }
     }
 
     static void RunCode()

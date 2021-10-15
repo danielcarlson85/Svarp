@@ -5,9 +5,9 @@ namespace SWarp.FileHandler
 {
     class FileHandler
     {
-        public static async Task<string[]> LoadFromFile(string[] args)
+        public static async Task<string[]> LoadFromFile(string fileName)
         {
-            return (await File.ReadAllLinesAsync(args[1]));
+            return (await File.ReadAllLinesAsync(fileName));
         }
     }
 }
