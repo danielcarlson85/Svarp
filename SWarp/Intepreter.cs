@@ -50,6 +50,10 @@ namespace SWarp
                     RäknaUtMethods.RäknaUtVariabel(programCode, programCodeOnRow);
                     break;
 
+                case "RäknaUtAllaVariabler":
+                    RäknaUtMethods.RäknaUtAllaVariabler(programCode, programCodeOnRow);
+                    break;
+
                 case "RäknaUt":
                     RäknaUtMethods.RäknaUt(programCode, programCodeOnRow);
                     break;

@@ -20,10 +20,19 @@ namespace Svarp
                 if (row.StartsWith('\t')) continue;
 
                 var codeRow = GetMethodValues(row);
+                code = GetVariables(code,row);
+
                 codeRow.CodeRowNumber = codeRowNumber;
 
                 code.CodeRows.Add(codeRow);
             }
+
+            return code;
+        }
+
+        private static ProgramCode GetVariables(ProgramCode code, string codeRow)
+        {
+            code.StringVariables = Parser.GetInputVariablesName(codeRow, "{", "}");
 
             return code;
         }

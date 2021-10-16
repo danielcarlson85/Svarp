@@ -82,5 +82,44 @@ namespace SWarp.Methods
 
             code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName).VariableValue = result.ToString();
         }
+
+        public static void RäknaUtAllaVariabler(ProgramCode programCode, ProgramCodeOnRow programCodeOnRow)
+        {
+            var variablesOnRow = Parser.GetInputVariablesName(programCodeOnRow.FullCodeOnRow, "{", "}");
+
+            var stringVariables = (variablesOnRow.Select(item => programCode.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
+            
+            var summa = stringVariables.Find(a => a.VariableName == variablesOnRow[0].VariableName).VariableValue;
+            var number1 = stringVariables.Find(a => a.VariableName == variablesOnRow[1].VariableName).VariableValue;
+            var number2 = stringVariables.Find(a => a.VariableName == variablesOnRow[2].VariableName).VariableValue;
+            var foundoperator = stringVariables.Find(a => a.VariableName == variablesOnRow[3].VariableName).VariableValue;
+
+
+
+            var result = 0;
+
+            switch (foundoperator)
+            {
+                case "+":
+                    result = int.Parse(number1) + int.Parse(number2);
+                    break;
+                case "-":
+                    result = int.Parse(number1) - int.Parse(number2);
+                    break;
+                case "*":
+                    result = int.Parse(number1) * int.Parse(number2);
+                    break;
+                case "/":
+                    result = int.Parse(number1) / int.Parse(number2);
+                    break;
+
+                default:
+                    break;
+            }
+
+            programCode.StringVariables.Find(v => v.VariableName == variablesOnRow[0].VariableName).VariableValue = result.ToString();
+
+            Console.WriteLine(result);
+        }
     }
 }

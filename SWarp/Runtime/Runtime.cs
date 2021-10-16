@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Models.Exceptions;
 using Svarp;
 
-namespace SWarp.Runtime
+namespace SWarp
 {
     public class Runtime
     {

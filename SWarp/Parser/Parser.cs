@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace Svarp
 {
-    static class Parser
+    public static class Parser
     {
         public static List<Variables> GetInputVariablesName(string strSource, string strStart, string strEnd)
         {

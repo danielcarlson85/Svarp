@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 
-namespace SWarp.FileHandler
+namespace SWarp
 {
-    class FileHandler
+    public static class FileHandler
     {
         public static async Task<string[]> LoadFromFile(string fileName)
         {
