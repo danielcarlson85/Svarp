@@ -21,7 +21,7 @@ namespace Svarp.Methods
             {
                 foreach (var variable in foundVariables)
                 {
-                    Console.Write(variable.VariableValue);
+                    Console.WriteLine(variable.VariableValue);
                 }
             }
         }

@@ -117,8 +117,9 @@ namespace SWarp.Methods
                     break;
             }
 
-            programCode.StringVariables.Find(v => v.VariableName == variablesOnRow[0].VariableName).VariableValue = result.ToString();
+            programCode.StringVariables.Find(v => v.VariableName == programCodeOnRow.RowVariables[0].VariableName).VariableValue = result.ToString();
 
+            
             Console.WriteLine(result);
         }
     }

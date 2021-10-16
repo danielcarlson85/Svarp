@@ -34,18 +34,26 @@ MetodStop					Slut av metoden
 
 
 
-- Räkna ut nummer och skriv resultatet på skärmen(Tillfälligt):
+- Räkna ut nummer på samma rad, och skriv resultatet på skärmen(Tillfälligt):
 		(RäknaUt)"nummer1+nummer2"
 		(RäknaUt)"nummer1-nummer2"
 		(RäknaUt)"nummer1*nummer2"
 		(RäknaUt)"nummer1/nummer2"
 
-- Räkna ut nummer via variabel och spara i samma variabel(Tillfälligt):
+- Räkna ut nummer via variabel på en rad och spara i samma variabel(Tillfälligt):
 		{variabelName}"nummer1+nummer2"
 		(RäknaUtVariabel){variabelNamn}
-
 		(SkrivUtVariabel){variabelName}
 
+
+- Räkna ut flera olika variabler på olika rader och skriv ut på skärmen
+
+{variabelName1}'23'
+{variabelName2}'2'
+{variabelNameOperator}'/'
+{variabelNameSumma}(RäknaUtAllaVariabler){variabelName1}{variabelName2}{variabelNameOperator}
+
+(SkrivUtVariabel){variabelNameSumma}
 
 		
 ***********************************************************************************************************
