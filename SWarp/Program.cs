@@ -13,7 +13,7 @@ using SWarp.Runtime;
 partial class Program
 {
     static readonly string SWFileName = "test.sw";
-    static readonly string rootPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.Parent.FullName) + "\\";
+    static readonly string rootPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName) + "\\";
 
     static async Task Main(string[] args)
     {
