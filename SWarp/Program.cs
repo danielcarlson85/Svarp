@@ -1,19 +1,19 @@
 ﻿
 
-using Svarp;
-using SWarp;
-using SWarp.FileHandler;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Svarp;
+using SWarp;
+using SWarp.FileHandler;
+using SWarp.Runtime;
 
 partial class Program
 {
-    static readonly string SWFileName = "calc.sw";
-    static readonly string rootPath = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.Parent.FullName) + "\\";
+    static readonly string SWFileName = "test.sw";
+    static readonly string rootPath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.Parent.FullName) + "\\";
 
     static async Task Main(string[] args)
     {
@@ -33,14 +33,13 @@ partial class Program
 
         if (args.Length != 0)
         {
-
             switch (args[0])
             {
                 case "-f":
                     var fileName = args[1];
                     var file = await FileHandler.LoadFromFile(fileName);
                     programCode = Lexer.LexCode(programCode, file.ToList());
-                    RunCode();
+                    Runtime.RunCode(programCode);
 
                     break;
 
@@ -53,7 +52,8 @@ partial class Program
                     break;
             }
         }
-        else
+
+        if (args.Length == 0)
         {
             if (Debugger.IsAttached)
             {
@@ -61,49 +61,14 @@ partial class Program
                 var file = await FileHandler.LoadFromFile(fileName);
 
                 programCode = Lexer.LexCode(programCode, file.ToList());
-                RunCode();
+                Runtime.RunCode(programCode);
             }
             else
             {
                 programCode = Lexer.LexCode(programCode, Code.code.ToList());
-                RunCode();
+                Runtime.RunCode(programCode);
             }
-        }
-    }
-
-    static void RunCode()
-    {
-        var exceptions = new List<ExceptionList>();
-        var activecoderow = string.Empty;
-        var codeRowNumber = 0;
-
-        try
-        {
-
-            foreach (var codeRow in programCode.CodeRows)
-            {
-                //Change here to debug SWarp
-                if (codeRow.CodeRowNumber == 48)
-                {
-                    Console.WriteLine("nu");
-                }
-
-                codeRowNumber = codeRow.CodeRowNumber;
-                activecoderow = codeRow.FullCodeOnRow;
-                Intepreter.Run(programCode, codeRow);
-            }
-
-        }
-        catch (Exception e)
-        {
-            exceptions.Add(new ExceptionList() { exception = e, MethodName = activecoderow, CodeRowNumber = codeRowNumber });
-
-            foreach (var item in exceptions)
-            {
-                Console.WriteLine("\n\nException: Method name: " + item.MethodName + " \n" + "On row" + item.CodeRowNumber + "\n\n" + item.exception);
-            }
-
-            throw;
         }
     }
 }
+
