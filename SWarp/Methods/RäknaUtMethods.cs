@@ -6,32 +6,31 @@ namespace SWarp.Methods
 {
     public static class RäknaUtMethods
     {
-        //		(RäknaUt)"nummer1+nummer2"
-
-
-
-        public static void RäknaUtAllt(ProgramCode code, ProgramCodeOnRow codeRow)
+        public static void RäknaUt(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             var variablesOnRow = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
+
+
+
             var stringVariables = (variablesOnRow.Select(item => code.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
 
 
-            //if (stringVariables.Co)
-            //{
-            //    RäknaUtVariabel(code, codeRow);
-            //}
-            //else if (string.IsNullOrEmpty(foundoperator))
-            //{
-            //    RäknaUtAllaVariabler(code, codeRow);
-            //}
-            //else
-            //{
-            //    RäknaUt(code, codeRow);
-            //}
+            if (codeRow.FullCodeOnRow.Contains("\'"))
+            {
+                RäknaUtSträng(code, codeRow);
+            }
+            else if (variablesOnRow.Count > 2)
+            {
+                RäknaUtAllaVariabler(code, codeRow);
+            }
+            else
+            {
+                RäknaUtVariabel(code, codeRow);
+            }
         }
 
 
-        internal static void RäknaUt(ProgramCode code, ProgramCodeOnRow codeRow)
+        internal static void RäknaUtSträng(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             string number2 = string.Empty;
 

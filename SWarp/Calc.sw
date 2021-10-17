@@ -1,18 +1,30 @@
 ﻿{variabelName1}'23'
 {variabelName2}'2'
 {variabelNameOperator}'/'
+
 {variabelNameSumma}(RäknaUtAllt){variabelName1}{variabelName2}{variabelNameOperator}
 
 
-{namn}(LäsIn)
-{namn2}(LäsIn)'Hej'
-
-{variabelName1}'23'
+(SkrivUt){variabelNameSumma}
 
 
-(SkrivUt)'hej'
-(SkrivUt)'hej'{variabelName1}
-(SkrivUt){variabelName1}
+
+--
+--{variabelName1}'23'
+--{variabelName2}'2'
+--{variabelNameOperator}'/'
+--{variabelNameSumma}(RäknaUtAllt){variabelName1}{variabelName2}{variabelNameOperator}
+--
+--
+--{namn}(LäsIn)
+--{namn2}(LäsIn)'Hej'
+--
+--{variabelName1}'23'
+--
+--
+--(SkrivUt)'hej'
+--(SkrivUt)'hej'{variabelName1}
+--(SkrivUt){variabelName1}
 
 
 

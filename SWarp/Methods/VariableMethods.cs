@@ -6,14 +6,17 @@ namespace Svarp.Methods
     {
         public static void Variabel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var stringVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName);
+
+            var variablesOnRow = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
+
+            var stringVariable = code.StringVariables.Find(v => v.VariableName == variablesOnRow[0].VariableName);
 
             if (stringVariable == null)
             {
                 stringVariable = new Variables
                 {
                     VariableValue = codeRow.RowText,
-                    VariableName = codeRow.RowVariables[0].VariableName
+                    VariableName = variablesOnRow[0].VariableName
                 };
             }
             else
