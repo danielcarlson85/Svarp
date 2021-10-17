@@ -8,7 +8,18 @@ namespace Svarp.Methods
     {
         public static void SkrivUt(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            Console.WriteLine(codeRow.RowText);
+            if (codeRow.FullCodeOnRow.Contains("{") && !codeRow.FullCodeOnRow.Contains('\''))
+            {
+                SkrivUtVariabel(code, codeRow);
+            }
+            else if (codeRow.FullCodeOnRow.Contains('\'') && codeRow.FullCodeOnRow.Contains('{'))
+            {
+                SkrivUtVariabelOchText(code, codeRow);
+            }
+            else
+            {
+                Console.WriteLine(codeRow.RowText);
+            }
         }
 
         internal static void SkrivUtVariabel(ProgramCode code, ProgramCodeOnRow codeRow)

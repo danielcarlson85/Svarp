@@ -11,6 +11,9 @@
 	(SkrivUtVariabel){nummers}
 (MetodStop)
 
+{namn}(LäsIn)'Vad heter du? '
+
+
 
 (MetodStart):Sluta
 	(SkrivUt)'Inne i sluta sdfasdfdsmetoden'

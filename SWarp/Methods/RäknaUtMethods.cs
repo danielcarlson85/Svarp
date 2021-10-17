@@ -6,6 +6,31 @@ namespace SWarp.Methods
 {
     public static class RäknaUtMethods
     {
+        //		(RäknaUt)"nummer1+nummer2"
+
+
+
+        public static void RäknaUtAllt(ProgramCode code, ProgramCodeOnRow codeRow)
+        {
+            var variablesOnRow = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
+            var stringVariables = (variablesOnRow.Select(item => code.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
+
+
+            //if (stringVariables.Co)
+            //{
+            //    RäknaUtVariabel(code, codeRow);
+            //}
+            //else if (string.IsNullOrEmpty(foundoperator))
+            //{
+            //    RäknaUtAllaVariabler(code, codeRow);
+            //}
+            //else
+            //{
+            //    RäknaUt(code, codeRow);
+            //}
+        }
+
+
         internal static void RäknaUt(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             string number2 = string.Empty;
@@ -88,7 +113,7 @@ namespace SWarp.Methods
             var variablesOnRow = Parser.GetInputVariablesName(programCodeOnRow.FullCodeOnRow, "{", "}");
 
             var stringVariables = (variablesOnRow.Select(item => programCode.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
-            
+
             var summa = stringVariables.Find(a => a.VariableName == variablesOnRow[0].VariableName).VariableValue;
             var number1 = stringVariables.Find(a => a.VariableName == variablesOnRow[1].VariableName).VariableValue;
             var number2 = stringVariables.Find(a => a.VariableName == variablesOnRow[2].VariableName).VariableValue;
@@ -119,7 +144,7 @@ namespace SWarp.Methods
 
             programCode.StringVariables.Find(v => v.VariableName == programCodeOnRow.RowVariables[0].VariableName).VariableValue = result.ToString();
 
-            
+
             Console.WriteLine(result);
         }
     }

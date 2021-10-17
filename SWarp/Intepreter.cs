@@ -26,24 +26,12 @@ namespace SWarp
                     SkrivMethods.SkrivUt(programCode, programCodeOnRow);
                     break;
 
-                case "SkrivUtVariabel":
-                    SkrivMethods.SkrivUtVariabel(programCode, programCodeOnRow);
-                    break;
-
-                case "SkrivUtVariabelOchText":
-                    SkrivMethods.SkrivUtVariabelOchText(programCode, programCodeOnRow);
-                    break;
-
                 case "Variabel":
                     VariableMethods.Variabel(programCode, programCodeOnRow);
                     break;
 
                 case "LäsIn":
                     LäsMethods.LäsIn(programCode, programCodeOnRow);
-                    break;
-
-                case "LäsInklTitel":
-                    LäsMethods.LäsInklTitel(programCode, programCodeOnRow);
                     break;
 
                 case "RäknaUtVariabel":
@@ -54,8 +42,8 @@ namespace SWarp
                     RäknaUtMethods.RäknaUtAllaVariabler(programCode, programCodeOnRow);
                     break;
 
-                case "RäknaUt":
-                    RäknaUtMethods.RäknaUt(programCode, programCodeOnRow);
+                case "RäknaUtAllt":
+                    RäknaUtMethods.RäknaUtAllt(programCode, programCodeOnRow);
                     break;
             }
         }

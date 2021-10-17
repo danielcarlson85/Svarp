@@ -1,4 +1,6 @@
-﻿namespace Svarp.Methods
+﻿using System.Linq;
+
+namespace Svarp.Methods
 {
     public static class VariableMethods
     {
