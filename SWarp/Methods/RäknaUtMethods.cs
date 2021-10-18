@@ -6,14 +6,11 @@ namespace SWarp.Methods
 {
     public static class RäknaUtMethods
     {
-        public static void RäknaUt(ProgramCode code, ProgramCodeOnRow codeRow)
+        public static void Räkna(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var variablesOnRow = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
-
-
+            var variablesOnRow = Parser.GetInputVariablesName(codeRow.FullCodeOnRow);
 
             var stringVariables = (variablesOnRow.Select(item => code.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
-
 
             if (codeRow.FullCodeOnRow.Contains("\'"))
             {
@@ -30,7 +27,7 @@ namespace SWarp.Methods
         }
 
 
-        internal static void RäknaUtSträng(ProgramCode code, ProgramCodeOnRow codeRow)
+        private static void RäknaUtSträng(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             string number2 = string.Empty;
 
@@ -68,7 +65,7 @@ namespace SWarp.Methods
         }
 
 
-        internal static void RäknaUtVariabel(ProgramCode code, ProgramCodeOnRow codeRow)
+        private static void RäknaUtVariabel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             string number1 = string.Empty;
             string number2 = string.Empty;
@@ -107,9 +104,9 @@ namespace SWarp.Methods
             code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName).VariableValue = result.ToString();
         }
 
-        public static void RäknaUtAllaVariabler(ProgramCode programCode, ProgramCodeOnRow programCodeOnRow)
+        private static void RäknaUtAllaVariabler(ProgramCode programCode, ProgramCodeOnRow programCodeOnRow)
         {
-            var variablesOnRow = Parser.GetInputVariablesName(programCodeOnRow.FullCodeOnRow, "{", "}");
+            var variablesOnRow = Parser.GetInputVariablesName(programCodeOnRow.FullCodeOnRow);
 
             var stringVariables = (variablesOnRow.Select(item => programCode.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
 

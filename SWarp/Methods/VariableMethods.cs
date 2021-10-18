@@ -1,13 +1,11 @@
-﻿using System.Linq;
-
-namespace Svarp.Methods
+﻿namespace Svarp.Methods
 {
     public static class VariableMethods
     {
         public static void Variabel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
 
-            var variablesOnRow = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
+            var variablesOnRow = Parser.GetInputVariablesName(codeRow.FullCodeOnRow);
 
             var stringVariable = code.StringVariables.Find(v => v.VariableName == variablesOnRow[0].VariableName);
 

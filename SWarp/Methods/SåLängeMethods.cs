@@ -1,10 +1,5 @@
-﻿using Svarp;
-using Svarp.Methods;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using Svarp;
 
 namespace SWarp.Methods
 {
@@ -19,7 +14,7 @@ namespace SWarp.Methods
             int number2 = int.Parse(codeRow.RowVariables[0].VariableName.Split(op)[1]);
 
 
-            var savedVariables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
+            var savedVariables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow);
 
             var foundVariables = (savedVariables.Select(item => code.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
 
@@ -34,7 +29,7 @@ namespace SWarp.Methods
                         number1++;
                     }
                     break;
-                
+
                 case ">":
                     while (number1 > number2)
                     {

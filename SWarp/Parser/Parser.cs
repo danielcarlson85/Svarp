@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -7,11 +6,11 @@ namespace Svarp
 {
     public static class Parser
     {
-        public static List<Variables> GetInputVariablesName(string strSource, string strStart, string strEnd)
+        public static List<Variables> GetInputVariablesName(string codeOnRow)
         {
             var variables = new List<Variables>();
 
-            MatchCollection mcol = Regex.Matches(strSource, @"{\b\S+?\b}");
+            MatchCollection mcol = Regex.Matches(codeOnRow, @"{\b\S+?\b}");
 
             int order = 0;
             foreach (Match m in mcol)
@@ -86,62 +85,62 @@ namespace Svarp
             return string.Empty;
         }
 
-        public static string GetFunctionName(string strSource, string strStart, string strEnd)
+        public static string GetFunctionName(string codeRow, string strStart, string strEnd)
         {
-            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            if (codeRow.Contains('(') && codeRow.Contains(')'))
             {
                 int Start, End;
-                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
-                End = strSource.IndexOf(strEnd, Start);
-                return strSource.Substring(Start, End - Start);
+                Start = codeRow.IndexOf(strStart, 0) + strStart.Length;
+                End = codeRow.IndexOf(strEnd, Start);
+                return codeRow.Substring(Start, End - Start);
             }
 
             return "";
         }
 
-        public static string GetDelegateFromRow(string strSource, string strStart, string strEnd)
+        public static string GetDelegateFromRow(string codeRow, string strStart, string strEnd)
         {
-            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            if (codeRow.Contains(strStart) && codeRow.Contains(strEnd))
             {
                 int Start, End;
-                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
-                End = strSource.IndexOf(strEnd, Start);
-                return strSource.Substring(Start, End - Start);
+                Start = codeRow.IndexOf(strStart, 0) + strStart.Length;
+                End = codeRow.IndexOf(strEnd, Start);
+                return codeRow.Substring(Start, End - Start);
             }
 
             return "";
         }
 
-        public static string GetOmInputFromRow(string strSource, string strStart, string strEnd)
+        public static string GetOmInputFromRow(string codeRow, string strStart, string strEnd)
         {
-            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            if (codeRow.Contains(strStart) && codeRow.Contains(strEnd))
             {
                 int Start, End;
-                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
-                End = strSource.IndexOf(strEnd, Start);
-                return strSource.Substring(Start, End - Start);
+                Start = codeRow.IndexOf(strStart, 0) + strStart.Length;
+                End = codeRow.IndexOf(strEnd, Start);
+                return codeRow.Substring(Start, End - Start);
             }
 
             return string.Empty;
         }
 
-        public static List<string> GetOmValueFromRow(string strSource, string strStart, string strEnd)
+        public static List<string> GetOmValueFromRow(string codeRow, string strStart, string strEnd)
         {
-            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            if (codeRow.Contains(strStart) && codeRow.Contains(strEnd))
             {
                 int Start, End;
-                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
-                End = strSource.IndexOf(strEnd, Start);
-                strSource = strSource.Substring(Start, End - Start);
+                Start = codeRow.IndexOf(strStart, 0) + strStart.Length;
+                End = codeRow.IndexOf(strEnd, Start);
+                codeRow = codeRow.Substring(Start, End - Start);
             }
 
 
             List<string> omValues = new();
-            var omOperator = GetOmOperator(strSource);
+            var omOperator = GetOmOperator(codeRow);
             if (omOperator != string.Empty)
             {
-                omValues.Add(strSource.Split(omOperator)[0]);
-                omValues.Add(strSource.Split(omOperator)[1]);
+                omValues.Add(codeRow.Split(omOperator)[0]);
+                omValues.Add(codeRow.Split(omOperator)[1]);
 
 
                 return omValues;
@@ -151,19 +150,19 @@ namespace Svarp
         }
 
 
-        public static string GetFunctionInputText(string strSource, string strStart, string strEnd)
+        public static string GetFunctionInputText(string codeRow, string strStart, string strEnd)
         {
-            if (strSource == string.Empty)
+            if (codeRow == string.Empty)
             {
                 return string.Empty;
             }
 
-            if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+            if (codeRow.Contains(strStart) && codeRow.Contains(strEnd))
             {
                 int Start, End;
-                Start = strSource.IndexOf(strStart, 0) + strStart.Length;
-                End = strSource.IndexOf(strEnd, Start);
-                return strSource.Substring(Start, End - Start);
+                Start = codeRow.IndexOf(strStart, 0) + strStart.Length;
+                End = codeRow.IndexOf(strEnd, Start);
+                return codeRow.Substring(Start, End - Start);
             }
 
             return "";

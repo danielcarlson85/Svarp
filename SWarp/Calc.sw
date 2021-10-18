@@ -2,10 +2,17 @@
 {variabelName2}'2'
 {variabelNameOperator}'/'
 
-{variabelNameSumma}(RäknaUtAllt){variabelName1}{variabelName2}{variabelNameOperator}
-
-
+{variabelNameSumma}(Räkna){variabelName1}{variabelName2}{variabelNameOperator}
 (SkrivUt){variabelNameSumma}
+
+
+--{variabelName1}'23'
+--{variabelName2}'2'
+--{variabelNameOperator}'/'
+--
+--
+--
+--(SkrivUt){variabelNameSumma}
 
 
 

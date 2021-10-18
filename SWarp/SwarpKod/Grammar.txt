@@ -42,7 +42,7 @@ MetodStop					Slut av metoden
 
 - Räkna ut nummer via variabel på en rad och spara i samma variabel(Tillfälligt):
 		{variabelName}"nummer1+nummer2"
-		(RäknaUtVariabel){variabelNamn}
+		(RäknaUt){variabelNamn}
 		(SkrivUtVariabel){variabelName}
 
 
@@ -51,7 +51,7 @@ MetodStop					Slut av metoden
 {variabelName1}'23'
 {variabelName2}'2'
 {variabelNameOperator}'/'
-{variabelNameSumma}(RäknaUtAllaVariabler){variabelName1}{variabelName2}{variabelNameOperator}
+{variabelNameSumma}(RäknaUt){variabelName1}{variabelName2}{variabelNameOperator}
 
 (SkrivUtVariabel){variabelNameSumma}
 
@@ -74,7 +74,7 @@ MetodStop					Slut av metoden
 		{variabelNamn}(LäsIn)
 
 - Läs text från användaren med titeltext, sparas i variabeln {variabelNamn}
-		{variabelNamn}(LäsInklTitel)"Detta skrivs ut också"
+		{variabelNamn}(LäsIn)"Detta skrivs ut också"
 
 
 
@@ -86,10 +86,10 @@ MetodStop					Slut av metoden
 		(SkrivUt)"Detta är texten som kommer skrivas ut"
 
 - Skriv ut variabel på skärmen
-		(SkrivUtVariabel){variabelNamn}
+		(SkrivUt){variabelNamn}
 
 - Skriv ut text och variabel på skärm
-		(SkrivUtVariabelOchText){variabelNamn}"Detta skrivs ut också"
+		(SkrivUt){variabelNamn}"Detta skrivs ut också"
 
 
 
@@ -100,8 +100,8 @@ MetodStop					Slut av metoden
 - Skapa en metod:
 
 		MetodStart:NamnetPåMetoden
-			{namn}(LäsInklTitel)"Vad heter du? "
-			{ålder}(LäsInklTitel)"Hur gammal är du?"
+			{namn}(LäsIn)"Vad heter du? "
+			{ålder}(LäsIn)"Hur gammal är du?"
 			{nummers}"5+5"
 		MetodStop
 

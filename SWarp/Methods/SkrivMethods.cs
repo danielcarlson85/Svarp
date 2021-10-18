@@ -24,7 +24,7 @@ namespace Svarp.Methods
 
         internal static void SkrivUtVariabel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var savedVariables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
+            var savedVariables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow);
 
             var foundVariables = (savedVariables.Select(item => code.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
 
@@ -39,7 +39,7 @@ namespace Svarp.Methods
 
         internal static void SkrivUtVariabelOchText(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var savedVariables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow, "{", "}");
+            var savedVariables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow);
 
             var foundVariables = (savedVariables.Select(item => code.StringVariables.Find(v => v.VariableName == item.VariableName))).ToList();
 
