@@ -12,11 +12,11 @@ SWarp syntax
 
 Förklaringar:
 
-(Metod)						Delklarera metod
+(Metod)						Starta metoden och namnet på metoden
 {Variabel}					Delklarera Variabel
-"RowText"					Delklarera text till metod eller variabel
+'RowText'					Delklarera text till metod eller variabel
 @Delegate@					Delklarera kod som ska köras i egna metoden
-MetodStart:MetodNamn		Start av metoden och namnet på metoden
+MetodStart:MetodNamn		Delklarera start av metod och namnet på metoden
 MetodStop					Slut av metoden
 
 
@@ -26,7 +26,7 @@ MetodStop					Slut av metoden
 
 
 - Skapa en variabel:
-		{variabelName}"variabel text"
+		{variabelName} <= 'variabel text'
 
 
 
@@ -35,25 +35,26 @@ MetodStop					Slut av metoden
 
 
 - Räkna ut nummer på samma rad, och skriv resultatet på skärmen(Tillfälligt):
-		(RäknaUt)"nummer1+nummer2"
-		(RäknaUt)"nummer1-nummer2"
-		(RäknaUt)"nummer1*nummer2"
-		(RäknaUt)"nummer1/nummer2"
+		(RäknaUt) => 'nummer1+nummer2'
+		(RäknaUt) => 'nummer1-nummer2'
+		(RäknaUt) => 'nummer1*nummer2'
+		(RäknaUt) => 'nummer1/nummer2'
 
 - Räkna ut nummer via variabel på en rad och spara i samma variabel(Tillfälligt):
-		{variabelName}"nummer1+nummer2"
-		(RäknaUt){variabelNamn}
-		(SkrivUtVariabel){variabelName}
+		{variabelName} <= 'nummer1+nummer2'
+		(RäknaUt) => {variabelNamn}
+		(SkrivUtVariabel) => {variabelName}
 
 
 - Räkna ut flera olika variabler på olika rader och skriv ut på skärmen
 
-{variabelName1}'23'
-{variabelName2}'2'
-{variabelNameOperator}'/'
-{variabelNameSumma}(RäknaUt){variabelName1}{variabelName2}{variabelNameOperator}
+{variabelName1} <= '23'
+{variabelName2} <= '2'
+{variabelNameOperator} <= '/'
 
-(SkrivUtVariabel){variabelNameSumma}
+{variabelNameSumma} <= (Räkna) => {variabelName1} {variabelName2} {variabelNameOperator}
+
+(Skriv) => {variabelNameSumma}
 
 		
 ***********************************************************************************************************
@@ -62,7 +63,7 @@ MetodStop					Slut av metoden
 
 - Loopa med function:
 
-		(SåLänge){1<200000} @(SkrivUt)"Hello World!"@
+		(SåLänge) => {1<200000} @(Skriv) => 'Hello World!'@
 
 
 
@@ -71,10 +72,10 @@ MetodStop					Slut av metoden
 
 
 - Läs text från användaren, sparas i variabeln {variabelNamn}
-		{variabelNamn}(LäsIn)
+		{variabelNamn} <= (Läs)
 
 - Läs text från användaren med titeltext, sparas i variabeln {variabelNamn}
-		{variabelNamn}(LäsIn)"Detta skrivs ut också"
+		{variabelNamn} <= (Läs) => 'Detta skrivs ut också'
 
 
 
@@ -83,13 +84,13 @@ MetodStop					Slut av metoden
 
 
 - Skriv ut text på skärmen:
-		(SkrivUt)"Detta är texten som kommer skrivas ut"
+		(Skriv) => 'Detta är texten som kommer skrivas ut'
 
 - Skriv ut variabel på skärmen
-		(SkrivUt){variabelNamn}
+		(Skriv) => {variabelNamn}
 
 - Skriv ut text och variabel på skärm
-		(SkrivUt){variabelNamn}"Detta skrivs ut också"
+		(Skriv) => {variabelNamn} => 'Detta skrivs ut också'
 
 
 
@@ -100,9 +101,9 @@ MetodStop					Slut av metoden
 - Skapa en metod:
 
 		MetodStart:NamnetPåMetoden
-			{namn}(LäsIn)"Vad heter du? "
-			{ålder}(LäsIn)"Hur gammal är du?"
-			{nummers}"5+5"
+			{namn} <= (LäsIn) => 'Vad heter du? '
+			{ålder} <= (LäsIn) => 'Hur gammal är du?'
+			{nummers} <= '5+5'
 		MetodStop
 
 
@@ -110,3 +111,11 @@ MetodStop					Slut av metoden
 ***********************************************************************************************************
 
 
+
+ - Kör den skapade metoden:
+
+		(KörMetod) => {NamnetPåMetoden}
+
+
+
+***********************************************************************************************************

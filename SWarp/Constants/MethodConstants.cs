@@ -5,9 +5,9 @@
         public const string Om = "Om";
         public const string KörMetod = "KörMetod";
         public const string SåLänge = "SåLänge";
-        public const string SkrivUt = "SkrivUt";
+        public const string Skriv = "Skriv";
         public const string Variabel = "Variabel";
-        public const string LäsIn = "LäsIn";
+        public const string Läs = "Läs";
         public const string Räkna = "Räkna";
     }
 }

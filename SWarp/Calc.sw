@@ -1,26 +1,80 @@
-﻿{variabelName1}'23'
-{variabelName2}'2'
-{variabelNameOperator}'/'
-
-{variabelNameSumma}(Räkna){variabelName1}{variabelName2}{variabelNameOperator}
-(SkrivUt){variabelNameSumma}
+﻿(KörMetod) => {NamnetPåMetoden}
 
 
---{variabelName1}'23'
---{variabelName2}'2'
---{variabelNameOperator}'/'
+(MetodStart):NamnetPåMetoden
+	{namn}(Läs) 'Vad heter du? '
+	{ålder}(Läs) 'Hur gammal är du?'
+	{nummers} '5+5'
+	(Skriv) {nummers}
+(MetodStop)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--{variabelNamn} <= 'hej vad heter sdfsd'
+--(Skriv) => {variabelNamn}
 --
 --
+--{variabelName1} <= '23'
+--{variabelName2} <= '2'
+--{variabelNameOperator} <= '/'
 --
---(SkrivUt){variabelNameSumma}
-
-
-
+--	{variabelNameSumma} <= (Räkna) => {variabelName1}{variabelName2}{variabelNameOperator}
+--	(Skriv) => {variabelNameSumma}
 --
---{variabelName1}'23'
---{variabelName2}'2'
---{variabelNameOperator}'/'
---{variabelNameSumma}(RäknaUtAllt){variabelName1}{variabelName2}{variabelNameOperator}
+--{variabelName2} <= '2'
+--{variabelName1} <= '23'
+--{variabelNameOperator} <= '/'
+--
+--	(Skriv) => 'hej vad heter du?'
+--
+--
+--{nummer1} <= (Läs) <= 'Skriv in första nummret här: '
+--
+--{variabelName1} <= '23'
+--{variabelName2} <= '2'
+--{variabelNameOperator} <= '/'
+--{variabelNameSumma} <= (Räkna) => {variabelName1}{variabelName2}{variabelNameOperator}
+--
+--(Räkna) => '12+23'
+--(Räkna) => '12-323'
+--(Räkna) => '12*23'
+--(Räkna) => '23/12'
+--
+--
+
+
+
+
+
+
+
+
+--(Skriv) => {variabelNameSumma}
+
+
 --
 --
 --{namn}(LäsIn)
@@ -35,7 +89,9 @@
 
 
 
---{nummer1}(LäsInklTitel)'Skriv in första nummret här: '
+--{nummer1} <= (Läs) <= 'Skriv in första nummret här: '
+
+
 --{nummer2}(LäsInklTitel)'Skriv in andra nummret här: '
 --{operator}(LäsInklTitel)'Skriv vad du vill göra här: '
 

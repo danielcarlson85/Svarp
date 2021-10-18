@@ -26,7 +26,7 @@ namespace SWarp
                     SåLängeMethods.SåLänge(programCode, programCodeOnRow);
                     break;
 
-                case MethodConstants.SkrivUt:
+                case MethodConstants.Skriv:
                     SkrivMethods.SkrivUt(programCode, programCodeOnRow);
                     break;
 
@@ -34,7 +34,7 @@ namespace SWarp
                     VariableMethods.Variabel(programCode, programCodeOnRow);
                     break;
 
-                case MethodConstants.LäsIn:
+                case MethodConstants.Läs:
                     LäsMethods.LäsIn(programCode, programCodeOnRow);
                     break;
 
