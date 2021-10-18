@@ -1,19 +1,44 @@
-﻿(KörMetod) => {NamnetPåMetoden}
+﻿--(SåLänge) => {1<2000} @(Skriv) => 'Hello World!'@
+--
+--
+--(KörMetod) => {NamnetPåMetoden}
+--
+--
+--(MetodStart):NamnetPåMetoden
+--	{namn}(Läs) 'Vad heter du? '
+--	{född}(Läs) 'När är du född?'
+--	{år}'2021'
+--
+--{variabelNameOperator} <= '-'
+--
+--{variabelNameSumma} <= (Räkna) => {född} {år} {variabelNameOperator}
+--
+--
+--	(Skriv) 'Du är :' {variabelNameSumma}
+--(MetodStop)
+--
+--
+--
+--
+--
+--
 
 
-(MetodStart):NamnetPåMetoden
-	{namn}(Läs) 'Vad heter du? '
-	{ålder}(Läs) 'Hur gammal är du?'
-	{nummers} '5+5'
-	(Skriv) {nummers}
-(MetodStop)
+{namn}(Läs) 'Vad heter du? '
+
+(Skriv) => {namn}
+
+{variabelName1}(Läs) 'När är du född?'
 
 
+{variabelName2} <= '2021'
+{variabelNameOperator} <= '-'
 
+{variabelNameSumma} <= (Räkna) => {variabelName2} {variabelName1} {variabelNameOperator}
 
+(Skriv) => 'Du är nu' {variabelNameSumma} {namn}
 
-
-
+(Skriv) => {variabelNameSumma}
 
 
 
