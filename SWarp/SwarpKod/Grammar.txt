@@ -26,7 +26,7 @@ MetodStop					Slut av metoden
 
 
 - Skapa en variabel:
-		{variabelName} <= 'variabel text'
+		{variabelName} = 'variabel text'
 
 
 
@@ -35,26 +35,26 @@ MetodStop					Slut av metoden
 
 
 - Räkna ut nummer på samma rad, och skriv resultatet på skärmen(Tillfälligt):
-		(Räkna) => 'nummer1+nummer2'
-		(Räkna) => 'nummer1-nummer2'
-		(Räkna) => 'nummer1*nummer2'
-		(Räkna) => 'nummer1/nummer2'
+		(Räkna) = 'nummer1+nummer2'
+		(Räkna) = 'nummer1-nummer2'
+		(Räkna) = 'nummer1*nummer2'
+		(Räkna) = 'nummer1/nummer2'
 
 - Räkna ut nummer via variabel på en rad och spara i samma variabel(Tillfälligt):
-		{variabelName} <= 'nummer1+nummer2'
-		(Räkna) => {variabelNamn}
-		(SkrivUtVariabel) => {variabelName}
+		{variabelName} = 'nummer1+nummer2'
+		(Räkna) = {variabelNamn}
+		(SkrivUtVariabel) = {variabelName}
 
 
 - Räkna ut flera olika variabler på olika rader och skriv ut på skärmen
 
-{variabelName1} <= '23'
-{variabelName2} <= '2'
-{variabelNameOperator} <= '/'
+{variabelName1} = '23'
+{variabelName2} = '2'
+{variabelNameOperator} = '/'
 
-{variabelNameSumma} <= (Räkna) => {variabelName1} {variabelName2} {variabelNameOperator}
+{variabelNameSumma} = (Räkna) = {variabelName1} {variabelName2} {variabelNameOperator}
 
-(Skriv) => {variabelNameSumma}
+(Skriv) = {variabelNameSumma}
 
 		
 ***********************************************************************************************************
@@ -63,7 +63,7 @@ MetodStop					Slut av metoden
 
 - Loopa med function:
 
-		(SåLänge) => {1<200000} @(Skriv) => 'Hello World!'@
+		(SåLänge) = {1<200000} @(Skriv) = 'Hello World!'@
 
 
 
@@ -72,10 +72,10 @@ MetodStop					Slut av metoden
 
 
 - Läs text från användaren, sparas i variabeln {variabelNamn}
-		{variabelNamn} <= (Läs)
+		{variabelNamn} = (Läs)
 
 - Läs text från användaren med titeltext, sparas i variabeln {variabelNamn}
-		{variabelNamn} <= (Läs) => 'Detta skrivs ut också'
+		{variabelNamn} = (Läs) = 'Detta skrivs ut också'
 
 
 
@@ -84,13 +84,13 @@ MetodStop					Slut av metoden
 
 
 - Skriv ut text på skärmen:
-		(Skriv) => 'Detta är texten som kommer skrivas ut'
+		(Skriv) = 'Detta är texten som kommer skrivas ut'
 
 - Skriv ut variabel på skärmen
-		(Skriv) => {variabelNamn}
+		(Skriv) = {variabelNamn}
 
 - Skriv ut text och variabel på skärm
-		(Skriv) => {variabelNamn} => 'Detta skrivs ut också'
+		(Skriv) = {variabelNamn} = 'Detta skrivs ut också'
 
 
 
@@ -101,9 +101,9 @@ MetodStop					Slut av metoden
 - Skapa en metod:
 
 		MetodStart:NamnetPåMetoden
-			{namn} <= (LäsIn) => 'Vad heter du? '
-			{ålder} <= (LäsIn) => 'Hur gammal är du?'
-			{nummers} <= '5+5'
+			{namn} = (LäsIn) = 'Vad heter du? '
+			{ålder} = (LäsIn) = 'Hur gammal är du?'
+			{nummers} = '5+5'
 		MetodStop
 
 
@@ -114,7 +114,7 @@ MetodStop					Slut av metoden
 
  - Kör den skapade metoden:
 
-		(KörMetod) => {NamnetPåMetoden}
+		(KörMetod) = {NamnetPåMetoden}
 
 
 

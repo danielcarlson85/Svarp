@@ -1,4 +1,23 @@
-﻿--(SåLänge) => {1<2000} @(Skriv) => 'Hello World!'@
+﻿(MetodStart):Start
+
+	(Skriv) = 'first'
+	{input} = (Läs) 'vad heter du?'
+	(Skriv) = {input}
+
+(MetodSlut)
+
+
+
+
+(KörMetod):Start
+
+
+
+{input} = (Läs)'Vad heter du?: '
+
+
+
+--(SåLänge) => {1<2000} @(Skriv) => 'Hello World!'@
 --
 --
 --(KörMetod) => {NamnetPåMetoden}
@@ -15,7 +34,7 @@
 --
 --
 --	(Skriv) 'Du är :' {variabelNameSumma}
---(MetodStop)
+--(MetodSlut)
 --
 --
 --
@@ -24,27 +43,27 @@
 --
 
 
-{namn}(Läs) 'Vad heter du? '
-
-(Skriv) => {namn}
-
-{variabelName1}(Läs) 'När är du född?'
-
-
-{variabelName2} <= '2021'
-{variabelNameOperator} <= '-'
-
-{variabelNameSumma} <= (Räkna) => {variabelName2} {variabelName1} {variabelNameOperator}
-
-(Skriv) => 'Du är nu' {variabelNameSumma} {namn}
-
-(Skriv) => {variabelNameSumma}
-
-
-
-
-
-
+--{namn}(Läs) 'Vad heter du? '
+--
+--(Skriv) => {namn}
+--
+--{variabelName1}(Läs) 'När är du född?'
+--
+--
+--{variabelName2} <= '2021'
+--{variabelNameOperator} <= '-'
+--
+--{variabelNameSumma} <= (Räkna) => {variabelName2} {variabelName1} {variabelNameOperator}
+--
+--(Skriv) => 'Du är nu' {variabelNameSumma} {namn}
+--
+--(Skriv) => {variabelNameSumma}
+--
+--
+--
+--
+--
+--
 
 
 

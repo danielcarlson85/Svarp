@@ -45,7 +45,7 @@ namespace Svarp
                     method.MenthodName = item.Split(":")[1];
                 }
 
-                if (item.StartsWith("(MetodStop)"))
+                if (item.StartsWith("(MetodSlut)"))
                 {
                     isMetod = false;
                     code.Methods.Add(method);
