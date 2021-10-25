@@ -111,6 +111,8 @@ namespace Svarp
 
         private static ProgramCodeOnRow GetMethodValues(string code)
         {
+            code.Trim();
+
             if (code == string.Empty)
             {
                 return new();

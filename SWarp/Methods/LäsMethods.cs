@@ -52,18 +52,23 @@ namespace Svarp.Methods
             Console.Write(codeRow.RowText);
 
             var rowVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName);
-            rowVariable.VariableValue = codeRow.RowVariableValue;
 
             var inData = Console.ReadLine();
 
-            var newRowVariable = new Variables
+            if (rowVariable != null)
             {
-                VariableValue = inData,
-                VariableName = codeRow.RowVariables[0].VariableName
-            };
+                rowVariable.VariableValue = codeRow.RowVariableValue;
+            }
+            else
+            {
+                rowVariable = new Variables
+                {
+                    VariableValue = inData,
+                    VariableName = codeRow.RowVariables[0].VariableName
+                };
+            }
 
-            CheckIfVariableExistAndUpdate(code, newRowVariable);
-
+            CheckIfVariableExistAndUpdate(code, rowVariable);
         }
 
         private static void CheckIfVariableExistAndUpdate(ProgramCode code, Variables rowVariable)

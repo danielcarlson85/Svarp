@@ -1,7 +1,7 @@
 (MetodStart):Start
     (Skriv) = 'first'
-	{input} = (Läs) 'vad heter du?'
-	(Skriv) = {input}
+	{input} = (Läs) 'vad hjohoeter du?'
+	(Skriv) = 'vad roligt att du är här: ' {input}
 (MetodSlut)
 
 
