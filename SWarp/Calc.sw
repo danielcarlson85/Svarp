@@ -1,39 +1,47 @@
-﻿(MetodStart):Start
-
-	(Skriv) = 'first'
+(MetodStart):Start
+    (Skriv) = 'first'
 	{input} = (Läs) 'vad heter du?'
 	(Skriv) = {input}
+(MetodSlut)
 
+
+(Skriv)'hej'
+
+(Skriv)  'hej vad heter du? '
+(Läs)'johan'
+(KörMetod):Start
+
+{input} = (Läs) 'Vad heter du?: '
+
+
+
+--(SåLänge) => {1<2000} @(KörMetod){minnyametod}@
+
+
+
+(MetodStart): minnyametod
+	(Skriv) 'vad heter du? '
 (MetodSlut)
 
 
 
 
-(KörMetod):Start
-
-
-
-{input} = (Läs)'Vad heter du?: '
-
-
-
---(SåLänge) => {1<2000} @(Skriv) => 'Hello World!'@
 --
 --
 --(KörMetod) => {NamnetPåMetoden}
 --
 --
---(MetodStart):NamnetPåMetoden
---	{namn}(Läs) 'Vad heter du? '
---	{född}(Läs) 'När är du född?'
---	{år}'2021'
+--(MetodStart)  :    NamnetPåMetoden
+--	{namn}  (Läs) 'Vad heter du? '
+--	{född}  (Läs) 'När är du född?'
+--	{år}    '2021'
 --
---{variabelNameOperator} <= '-'
+--{variabelNameOperator} <= 'väörde i variabeln sparas till'
 --
 --{variabelNameSumma} <= (Räkna) => {född} {år} {variabelNameOperator}
 --
 --
---	(Skriv) 'Du är :' {variabelNameSumma}
+--(Skriv) 'Du är :' {variabelNameSumma}
 --(MetodSlut)
 --
 --
@@ -58,19 +66,6 @@
 --(Skriv) => 'Du är nu' {variabelNameSumma} {namn}
 --
 --(Skriv) => {variabelNameSumma}
---
---
---
---
---
---
-
-
-
-
-
-
-
 
 
 

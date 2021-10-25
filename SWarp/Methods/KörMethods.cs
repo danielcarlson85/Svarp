@@ -6,7 +6,11 @@ namespace SWarp.Methods
     {
         public static void KörMetod(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var motod = code.Methods.Find(v => v.MenthodName == codeRow.RowVariables[0].VariableName);
+
+            var metodNameOnRow = codeRow.FullCodeOnRow.Split(":");
+
+
+            var motod = code.Methods.Find(v => v.MenthodName == metodNameOnRow[1]);
 
             foreach (var item in motod.CodeRows)
             {

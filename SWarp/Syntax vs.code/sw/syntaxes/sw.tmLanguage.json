@@ -1,0 +1,35 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Swarp",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#variables"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.sw",
+				"match": "\\b(if|while|for|return|SåLänge|KörMetod|MetodStart|MetodSlut|Skriv|Läs|Räkna|Om)\\b"
+			}]
+		},
+		"variables": {
+			"name": "string.quoted.double.swd",
+			"begin": "{",
+			"end": "}",
+			"patterns": [
+				{
+					"name": "constant.character.escape.sw",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.sw"
+}

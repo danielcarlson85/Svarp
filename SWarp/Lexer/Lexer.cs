@@ -1,4 +1,5 @@
 ﻿using SWarp.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Svarp
@@ -11,23 +12,32 @@ namespace Svarp
         {
             code = GetMethods(code, file);
 
-            foreach (var row in file)
+            try
             {
-                codeRowNumber++;
-                if (string.IsNullOrEmpty(row)) continue;
-                if (row.StartsWith("--")) continue;
-                if (row.StartsWith("Metod")) continue;
-                if (row.StartsWith('\t')) continue;
 
-                var codeRow = GetMethodValues(row);
-                code.StringVariables = Parser.GetInputVariablesName(row);
+                foreach (var row in file)
+                {
+                    codeRowNumber++;
+                    if (string.IsNullOrEmpty(row)) continue;
+                    if (row.StartsWith("--")) continue;
+                    if (row.StartsWith("Metod")) continue;
+                    if (row.StartsWith('\t')) continue;
 
-                codeRow.CodeRowNumber = codeRowNumber;
+                    var codeRow = GetMethodValues(row);
+                    code.StringVariables = Parser.GetInputVariablesName(row);
 
-                code.CodeRows.Add(codeRow);
+                    codeRow.CodeRowNumber = codeRowNumber;
+
+                    code.CodeRows.Add(codeRow);
+                }
+
+                return code;
             }
-
-            return code;
+            catch (Exception ex)
+            {
+                throw new Exception($"Couldnt Lex and Parse a line in your SWarp code,  Exeption is on line: {codeRowNumber}  in your SWarp code \n { ex.StackTrace }");
+            }
+            
         }
 
         private static ProgramCode GetMethods(ProgramCode code, List<string> file)
@@ -46,6 +56,40 @@ namespace Svarp
                 }
 
                 if (item.StartsWith("(MetodSlut)"))
+                {
+                    isMetod = false;
+                    code.Methods.Add(method);
+                }
+
+                if (isMetod)
+                {
+                    if (!item.StartsWith("(MetodStart)"))
+                    {
+                        var codeRow = GetMethodValues(item);
+                        method.CodeRows.Add(codeRow);
+                    }
+                }
+            }
+
+            return code;
+        }
+
+        private static ProgramCode GetOmMethods(ProgramCode code, List<string> file)
+        {
+            bool isMetod = false;
+
+            ProgramMethods method = new();
+
+            foreach (var item in file)
+            {
+                if (item.StartsWith("(Om)"))
+                {
+                    isMetod = true;
+                    method = new();
+                    method.MenthodName = item.Split(":")[1];
+                }
+
+                if (item.StartsWith("(OmSlut)"))
                 {
                     isMetod = false;
                     code.Methods.Add(method);

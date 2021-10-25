@@ -28,8 +28,6 @@ namespace SWarp
 
         static async Task Run(string[] args)
         {
-            Console.WriteLine("innan main");
-
             if (args.Length != 0)
             {
                 switch (args[0])

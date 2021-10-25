@@ -17,7 +17,17 @@ Förklaringar:
 'RowText'					Delklarera text till metod eller variabel
 @Delegate@					Delklarera kod som ska köras i egna metoden
 MetodStart:MetodNamn		Delklarera start av metod och namnet på metoden
-MetodStop					Slut av metoden
+MetodSlut					Slut av metoden
+
+Metoder nu:
+
+(MetodStart)
+(MetodSlut)
+(Räkna)
+(Om)
+(Skriv)
+(Läs)
+(SåLänge)
 
 
 

@@ -10,8 +10,11 @@
 
   <ItemGroup>
     <Compile Remove="bin\**" />
+    <Compile Remove="Syntax vs.code\**" />
     <EmbeddedResource Remove="bin\**" />
+    <EmbeddedResource Remove="Syntax vs.code\**" />
     <None Remove="bin\**" />
+    <None Remove="Syntax vs.code\**" />
   </ItemGroup>
 
   <ItemGroup>

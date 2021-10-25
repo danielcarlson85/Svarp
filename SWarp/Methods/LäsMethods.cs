@@ -6,13 +6,22 @@ namespace Svarp.Methods
     {
         public static void LäsIn(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            if (codeRow.FullCodeOnRow.Contains('\''))
+            var hasValue = codeRow.RowVariables.Count != 0 ? true : false;
+
+            if (hasValue)
             {
-                LäsInInklTitel(code, codeRow);
+                if (codeRow.FullCodeOnRow.Contains('\''))
+                {
+                    LäsInInklTitel(code, codeRow);
+                }
+                else
+                {
+                    LäsInText(code, codeRow);
+                }
             }
             else
             {
-                LäsInText(code, codeRow);
+                Console.WriteLine("\nNo input variable declared");
             }
         }
 
@@ -41,24 +50,20 @@ namespace Svarp.Methods
         private static void LäsInInklTitel(ProgramCode code, ProgramCodeOnRow codeRow)
         {
             Console.Write(codeRow.RowText);
+
             var rowVariable = code.StringVariables.Find(v => v.VariableName == codeRow.RowVariables[0].VariableName);
+            rowVariable.VariableValue = codeRow.RowVariableValue;
 
             var inData = Console.ReadLine();
 
-            if (rowVariable != null)
+            var newRowVariable = new Variables
             {
-                rowVariable.VariableValue = codeRow.RowVariableValue;
-            }
-            else
-            {
-                rowVariable = new Variables
-                {
-                    VariableValue = inData,
-                    VariableName = codeRow.RowVariables[0].VariableName
-                };
-            }
+                VariableValue = inData,
+                VariableName = codeRow.RowVariables[0].VariableName
+            };
 
-            CheckIfVariableExistAndUpdate(code, rowVariable);
+            CheckIfVariableExistAndUpdate(code, newRowVariable);
+
         }
 
         private static void CheckIfVariableExistAndUpdate(ProgramCode code, Variables rowVariable)
