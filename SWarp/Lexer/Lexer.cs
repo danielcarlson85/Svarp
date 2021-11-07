@@ -1,8 +1,8 @@
-﻿using SWarp.Models;
+﻿using Swarp.Common.Models;
 using System;
 using System.Collections.Generic;
 
-namespace Svarp
+namespace Swarp
 {
     class Lexer
     {

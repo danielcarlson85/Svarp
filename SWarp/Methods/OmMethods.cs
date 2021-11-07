@@ -1,4 +1,5 @@
-﻿using Svarp;
+﻿using Swarp;
+using Swarp.Common.Models;
 
 namespace SWarp.Methods
 {

@@ -1,6 +1,7 @@
 ﻿using System;
+using Swarp.Common.Models;
 
-namespace Svarp.Methods
+namespace Swarp.Methods
 {
     public static class VariableMethods
     {

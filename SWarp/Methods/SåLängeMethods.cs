@@ -1,5 +1,6 @@
 ﻿using System.Linq;
-using Svarp;
+using Swarp;
+using Swarp.Common.Models;
 
 namespace SWarp.Methods
 {
@@ -7,11 +8,11 @@ namespace SWarp.Methods
     {
         public static void SåLänge(ProgramCode code, ProgramCodeOnRow codeRow)
         {
-            var op = Parser.GetLoopOperator(codeRow.RowVariables[0].VariableName);
+            var op = Parser.GetLoopOperator(codeRow.RowText);
             codeRow.Operator = op;
 
-            int number1 = int.Parse(codeRow.RowVariables[0].VariableName.Split(op)[0]);
-            int number2 = int.Parse(codeRow.RowVariables[0].VariableName.Split(op)[1]);
+            int number1 = int.Parse(codeRow.RowText.Split(op)[0]);
+            int number2 = int.Parse(codeRow.RowText.Split(op)[1]);
 
 
             var savedVariables = Parser.GetInputVariablesName(codeRow.FullCodeOnRow);

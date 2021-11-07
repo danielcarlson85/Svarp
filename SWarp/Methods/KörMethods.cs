@@ -1,4 +1,6 @@
-﻿using Svarp;
+﻿using System.Linq;
+using Swarp;
+using Swarp.Common.Models;
 
 namespace SWarp.Methods
 {
@@ -7,12 +9,11 @@ namespace SWarp.Methods
         public static void KörMetod(ProgramCode code, ProgramCodeOnRow codeRow)
         {
 
-            var metodNameOnRow = codeRow.FullCodeOnRow.Split(":");
+            var metodNameOnRow = codeRow.FullCodeOnRow.Split(":")[1];
 
+            var moetodNamn = code.Methods.SingleOrDefault(v => v.MenthodName == metodNameOnRow);
 
-            var motod = code.Methods.Find(v => v.MenthodName == metodNameOnRow[1]);
-
-            foreach (var item in motod.CodeRows)
+            foreach (var item in moetodNamn.CodeRows)
             {
                 Intepreter.Run(code, item);
             }

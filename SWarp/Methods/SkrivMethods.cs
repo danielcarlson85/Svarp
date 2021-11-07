@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using Swarp.Common.Models;
 
-namespace Svarp.Methods
+namespace Swarp.Methods
 {
     public class SkrivMethods
     {

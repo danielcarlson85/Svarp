@@ -5,7 +5,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Svarp;
+using Swarp;
+using Swarp.Common.Models;
+using SWarp.Common;
 
 namespace SWarp
 {
@@ -41,8 +43,8 @@ namespace SWarp
                         break;
 
                     case "--compile":
-                        Compiler.Compile(args[1]);
-                        Console.WriteLine("Program is compiled");
+                        //Compiler.Compile(args[1]);
+                        //Console.WriteLine("Program is compiled");
                         break;
 
                     default:

@@ -31,4 +31,20 @@
     <Content Include="SwarpKod\Grammar.txt" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SWarp.Common\SWarp.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Code.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Calc.sw">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

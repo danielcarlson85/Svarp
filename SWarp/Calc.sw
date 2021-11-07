@@ -15,8 +15,7 @@
 
 
 
---(SåLänge) => {1<2000} @(KörMetod){minnyametod}@
-
+(SåLänge) '1 < 2'  => @(KörMetod):minnyametod@
 
 
 (MetodStart): minnyametod
