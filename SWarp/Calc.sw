@@ -9,19 +9,6 @@
 
 (Skriv)  'hej vad heter du? '
 (Läs)'johan'
-(KörMetod):Start
-
-{input} = (Läs) 'Vad heter du?: '
-
-
-
-(SåLänge) '1 < 2'  => @(KörMetod):minnyametod@
-
-
-(MetodStart): minnyametod
-	(Skriv) 'vad heter du? '
-(MetodSlut)
-
 
 
 
